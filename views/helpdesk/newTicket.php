@@ -1,6 +1,7 @@
 <?php $titre_page = 'Créer Ticket'; ?>
 <?php ob_start(); ?>
 
+
 <div class="container-fluid mt-3">
   <form class="needs-validation" method="post" novalidate>
     <div class="form-row">
@@ -91,9 +92,9 @@
         </div>
 
         <div class="form-group col-md-3 mb-3 ml-5">
-          <label for="exampleFormControlFile1">Pièce jointe</label>
-          <input type="file" class="form-control-file" id="document"  name="document">
-        </div>
+        <label for="validationTooltip05">document</label>
+          <input type="text" class="form-control" id="document"  name="document" >
+          
     </div> 
 
     <div class="form-row">

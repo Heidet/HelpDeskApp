@@ -1,11 +1,11 @@
 <?php
 require_once('Manager.php');
-class PostManager extends Manager
+class ticketManager extends Manager
 {
     public function addTicket($numeroClient, $nom, $prenom, $mail, $ville, $zip, $contact, $priorite, $categorie, $document, $contenu)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare("INSERT INTO `tickets` (`numeroClient`, `date`, `nom`, `prenom`, `mail`, `ville`, `zip`, `contact`, `priorite`, `categorie`, `document`, `contenu`) VALUES (?, CURRENT_TIMESTAMP, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? );");
+        $req = $db->prepare("INSERT INTO `tickets` (`id`, `numeroClient`, `date`, `nom`, `prenom`, `mail`, `ville`, `zip`, `contact`, `priorite`, `categorie`, `document`, `contenu`) VALUES (NULL, ?, CURRENT_TIMESTAMP, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? );");
         $affectedLines = $req->execute(array($numeroClient, $nom, $prenom, $mail, $ville, $zip, $contact, $priorite, $categorie, $document, $contenu)); // recupération title content 
 
         return $affectedLines;
