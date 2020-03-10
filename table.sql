@@ -17,6 +17,7 @@ ALTER TABLE `tickets` ADD `priorite` TEXT NOT NULL AFTER `contact` ;
 ALTER TABLE `tickets` ADD `categorie` TEXT NOT NULL AFTER `priorite` ;
 ALTER TABLE `tickets` ADD `document` TEXT NOT NULL AFTER `categorie` ;
 ALTER TABLE `tickets` ADD `contenu` TEXT NOT NULL AFTER `document` ;
+ALTER TABLE `tickets` ADD `titre` VARCHAR(64) NOT NULL AFTER `id`; 
 
 
 ------------- Table User_HelpDesk -------------

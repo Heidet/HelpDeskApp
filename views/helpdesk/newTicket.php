@@ -1,7 +1,6 @@
 <?php $titre_page = 'Créer Ticket'; ?>
 <?php ob_start(); ?>
 
-
 <div class="container-fluid mt-3">
   <form class="needs-validation" method="post" novalidate>
     <div class="form-row">
@@ -66,9 +65,7 @@
               Saisir le contact.
             </div>
         </div>
-    </div>
 
-    <div class="form-row">
         <div class="form-group col-md-3 mb-3">
           <label for="exampleFormControlSelect1">Priorité</label>
             <select class="form-control" id="priorite"  name="priorite">
@@ -91,14 +88,24 @@
           </select>
         </div>
 
-        <div class="form-group col-md-3 mb-3 ml-5">
-        <label for="validationTooltip05">document</label>
-          <input type="text" class="form-control" id="document"  name="document" >
-          
-    </div> 
+    </div>
+
+    
 
     <div class="form-row">
-        <div class="col-md-10  mb-5">
+      
+    <div class="col-md-4 mb-3">
+            <label for="validationTooltip01">Titre</label>
+            <input type="text" class="form-control" id="titre"  name="titre" value="" required>
+              <div class="invalid-tooltip">
+                Saisir le titre.
+              </div>
+        </div>
+
+        </div> 
+
+    <div class="form-row">
+        <div class="col-md-10  mb-0">
           <label for="validationTextarea">Textarea</label>
           <textarea class="form-control is-invalid" id="contenu"  name="contenu" rows="6" placeholder="Required example textarea"
             required></textarea>
@@ -106,9 +113,16 @@
               Saisir l'incident.
             </div>
         </div>
-    </div>    
+        <div class="form-group col-md-3 mb-5 ">
+          <label for="exampleFormControlFile1">Pièce jointe</label>
+          <input type="file" class="form-control-file" id="document"  name="document">
+        </div>
+    </div> 
+    <button class="btn btn-primary ml-5" type="submit">Enregistrer</button>
 
-    <button class="btn btn-primary" type="submit">Enregistrer</button>
+    </div>   
+    
+  
 
   </form>
 </div>
