@@ -32,3 +32,4 @@ function listTickets()
 
     include('views/helpdesk/vueTicket.php'); 
 }
+

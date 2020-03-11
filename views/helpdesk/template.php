@@ -79,7 +79,7 @@ ini_set("display_errors", 1);
   <nav class="nav nav-underline">
     <a class="nav-link active" href="#">Dashboard</a>
     <a class="nav-link" href="index.php?action=addTicket">Créer ticket</a>
-    <a class="nav-link" href="#">Magasin</a>
+    <a class="nav-link" href="#">Mes Ticket</a>
     <a class="nav-link" href="index.php?action=listTickets#">Vue BackLog</a>
   </nav>
 </div>
