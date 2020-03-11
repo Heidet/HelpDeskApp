@@ -20,7 +20,7 @@ ini_set("display_errors", 1);
                     <strong class="d-block text-gray-dark"><?= $data['id'] ?></strong>
                     <?= htmlspecialchars($data['titre']) ?>
                 </p>
-                <a href="index.php?action=post&amp;id=<?= $data['id'] ?>" class="btn btn-primary">... &rarr;</a>
+                <a href="index.php?action=ticket&amp;id=<?= $data['id'] ?>" class="btn btn-primary">...</a>
                 </div>
             </main>
         </div>

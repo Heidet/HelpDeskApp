@@ -107,7 +107,7 @@
     <div class="form-row">
         <div class="col-md-10  mb-0">
           <label for="validationTextarea">Textarea</label>
-          <textarea class="form-control is-invalid" id="contenu"  name="contenu" rows="6" placeholder="Required example textarea"
+          <textarea class="form-control is-invalid" id="contenu"  name="contenu" rows="6" placeholder=""
             required></textarea>
             <div class="invalid-feedback">
               Saisir l'incident.

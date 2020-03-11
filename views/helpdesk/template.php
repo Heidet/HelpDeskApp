@@ -78,9 +78,9 @@ ini_set("display_errors", 1);
 <div class="nav-scroller bg-white shadow-sm">
   <nav class="nav nav-underline">
     <a class="nav-link active" href="#">Dashboard</a>
-    <a class="nav-link" href="#">Créer ticket</a>
+    <a class="nav-link" href="index.php?action=addTicket">Créer ticket</a>
     <a class="nav-link" href="#">Magasin</a>
-    <a class="nav-link" href="#">Vue BackLog</a>
+    <a class="nav-link" href="index.php?action=listTickets#">Vue BackLog</a>
   </nav>
 </div>
 

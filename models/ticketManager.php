@@ -28,21 +28,4 @@ class ticketManager extends Manager
 
         return $ticket;
     }
-    /**public function deleteTicket($ticketId)
-    {
-        $db = $this->dbConnect();
-        $req = $db->prepare('DELETE FROM tickets WHERE id = ?');
-        $affectedLines = $req->execute(array($postId));
-
-        return $affectedLines; 
-    }**/
-    
-    /**public function modificationTicket($numeroClient, $nom, $prenom, $mail, $ville, $zip, $contact, $priorite, $categorie, $document, $contenu, $ticketId)
-    {
-        $db = $this->dbConnect();
-        $req = $db->prepare("UPDATE tickets SET numeroClient = ?, nom = ?, prenom = ?, mail = ?, ville = ?, zip = ?, contact = ?, priorite = ?, categorie = ?, document = ?, contenu = ?  WHERE id = ?"); // mettre à jour la table poste ( titre = 1 champs, contenu = 2 ème champs) quand l'id = son ID 
-        $affectedLines = $req->execute(array($numeroClient, $nom, $prenom, $mail, $ville, $zip, $contact, $priorite, $categorie, $document, $contenu, $ticketId)); // recupération title content 
-
-        return $affectedLines;
-    }**/ 
 }
