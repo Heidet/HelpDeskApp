@@ -20,7 +20,8 @@ $routeurAction = [
 ];  
 
 
-
+$controller = new $routeurAction[$_GET['action']]['controller']($twig);
+$controller->$routeurAction[$_GET['action']]['methode']();
 
 /**if ($_GET['action'] == 'addTicket') {
         require_once('controller/backend.php');
