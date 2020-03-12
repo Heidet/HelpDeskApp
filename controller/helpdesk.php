@@ -7,9 +7,10 @@
 // Chargement des classes
 require_once('models/ticketManager.php');
 
-function createTicketViews()
+function newTicket($twig)
 {
-   include('views/helpdesk/newTicket.php');
+    echo $twig->render('newTicket.html.twig');
+   //include('views/helpdesk/newTicket.php');
 }
 
 function addTicket($titre, $numeroClient, $nom, $prenom, $mail, $ville, $zip, $contact, $priorite, $categorie, $document, $contenu) 
@@ -25,11 +26,11 @@ function addTicket($titre, $numeroClient, $nom, $prenom, $mail, $ville, $zip, $c
         //header('Location: localhost:8888/views/helpdesk/newTicket.php'); 
     }
 }
-function listTickets()
+function listTickets($twig)
 {
     $ticketManager = new ticketManager(); 
     $tickets = $ticketManager->getTickets(); 
 
-    include('views/helpdesk/vueTicket.php'); 
+    echo $twig->render('home.html.twig', ['tickets'=>$tickets]);
 }
 
