@@ -1,3 +1,5 @@
+{% extends "layout.html.twig" %}
+{% block content %}
 
 <div class="container-fluid mt-3">
   <form class="needs-validation" method="post" novalidate>
@@ -12,7 +14,7 @@
 
       <div class="col-md-4 mb-3">
         <label for="validationTooltip02">Nom</label>
-        <input type="text" class="form-control" id="nom" value="" required>
+        <input type="text" class="form-control" id="nom" name="nom" value="" required>
           <div class="invalid-tooltip">
             Saisir l'utilisateur.
           </div>
@@ -124,3 +126,4 @@
 
   </form>
 </div>
+{% endblock %}

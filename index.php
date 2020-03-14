@@ -15,8 +15,8 @@ $twig = new \Twig\Environment($loader, [
 
 $routeurAction = [
      'listTickets' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'listTickets' ],
-     //'newTicket' => ['controller' => Controller\helpdesk, 'methode' => 'newTicket' ],
-     'connexion' => ['controller' => 'Controller\User', 'methode' => 'connexion' ],
+     'newTicket' => ['controller' => 'Controller\helpdesk', 'methode' => 'newTicket' ],
+     //'connexion' => ['controller' => 'Controller\User', 'methode' => 'connexion' ],
 ];  
 
 $controller_name = $routeurAction[$_GET['action']]['controller'];
