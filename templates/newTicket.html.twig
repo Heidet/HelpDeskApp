@@ -1,13 +1,14 @@
 {% extends "layout.html.twig" %}
 {% block title %}{{ parent() }} - Nouveau-Ticket{% endblock %}
 {% block content %}
-{{ ticket.id }}
 
 
+{% block contentForm %}     
 <div class="container-fluid mt-3">
-  <div class="row">
-      {% block contentForm %}
+  <div class="row">        
       <div class="col-lg-12">
+      {% block ticketNumber %} 
+      {% endblock %}
           <form class="needs-validation" method="post" novalidate>
             <div class="form-row">
                 <div class="col-md-4 mb-3">

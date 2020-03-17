@@ -1,8 +1,13 @@
 {% extends "newTicket.html.twig" %}
 
 {% block title %}{{ parent() }} - détail-Ticket{% endblock %}
+
 {% block contentform %}
-{{ ticket.id }}
-
-
+    {% block ticketNumber %}
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            Numéro d'incident : <strong>{{ ticket.id }}</strong>
+        </div>
+    </div>
+    {% endblock %}
 {% endblock %}
