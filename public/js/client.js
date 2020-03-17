@@ -15,12 +15,13 @@ function ajaxGet(url, callback) {
         console.error("Erreur réseau avec l'URL " + url);
     });
     req.send(null);
-}
-/*ajaxGet("http://localhost/javascript-web-srv/data/films.json", function (reponse) {
+}; 
+
+ajaxGet("http://localhost:8888/public/js/numeroClient.json", function (reponse) {
     // Transforme la réponse en tableau d'objets JavaScript
-    var films = JSON.parse(reponse);
+    var numeroClient = JSON.parse(reponse);
     // Affiche le titre de chaque film
-    films.forEach(function (film) {
-        console.log(film.titre);
+    numeroClient.forEach(function (client) {
+        console.log(client.nom);
     })
-});*/
+});

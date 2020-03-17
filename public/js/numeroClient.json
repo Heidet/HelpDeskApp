@@ -2,42 +2,42 @@
 
     {
       "numéroClient": 1,
-      "Nom": "Jukes",
-      "Prenom": "Dan",
-      "Mail": "dan.brukes@mail.com",
-      "Zip": "90000",
-      "Ville": "belfort",
-      "Contact": "0112333210"
+      "nom": "Jukes",
+      "prenom": "Dan",
+      "mail": "dan.brukes@mail.com",
+      "zip": "90000",
+      "ville": "belfort",
+      "contact": "0112333210"
     },
 
     {
         "numéroClient": 2 ,
-        "Nom": "Doe",
-        "Prenom": "John",
-        "Mail": "doe.john@protonmail.com",
-        "Zip": "92000",
-        "Ville": "Paris",
-        "Contact": "0287569054"
+        "nom": "Doe",
+        "prenom": "John",
+        "mail": "doe.john@protonmail.com",
+        "zip": "92000",
+        "ville": "Paris",
+        "contact": "0287569054"
     },
 
     {
         "numéroClient": 3,
-        "Nom": "dupond",
-        "Prenom": "John",
-        "Mail": "john.dupond12@gmail.com",
-        "Zip": "68000",
-        "Ville": "Mulhouse",
-        "Contact": "0983789873"
+        "nom": "dupond",
+        "prenom": "John",
+        "mail": "john.dupond12@gmail.com",
+        "zip": "68000",
+        "ville": "Mulhouse",
+        "contact": "0983789873"
     },
 
     {
         "numéroClient": 4,
-        "Nom": "Bonie",
-        "Prenom": "Dan",
-        "Mail": "dan.bonie10@hotmail.com",
-        "Zip": "90000",
-        "Ville": "Valdoie",
-        "Contact": "0928736980"
+        "nom": "Bonie",
+        "prenom": "Dan",
+        "mail": "dan.bonie10@hotmail.com",
+        "zip": "90000",
+        "ville": "Valdoie",
+        "contact": "0928736980"
     }
 
     
