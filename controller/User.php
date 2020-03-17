@@ -1,4 +1,4 @@
-<?php
+<?php namespace Controller;
 
 class User
 {
@@ -9,12 +9,14 @@ class User
     function checkConnexion($username, $password)
     {
     
-        $adminManager = new adminManager();
+        $adminManager = new \Model\adminManager();
         if($adminManager->checkConnexion($username, $password) == 1 ){
             $_SESSION['Logged'] = true;
             header('Location: index.php?action=adminPanel');
         }
         return $adminManager->checkConnexion($username, $password);
     
+        
     }
 }
+

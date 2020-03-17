@@ -23,7 +23,7 @@ class ticketManager extends Manager
     public function getTicket($ticketId)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT * FROM posts WHERE id = ?');
+        $req = $db->prepare('SELECT * FROM tickets WHERE id = ?');
         $req->execute(array($ticketId)); // Bindparam
         $ticket = $req->fetch();
     

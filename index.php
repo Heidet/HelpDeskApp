@@ -14,9 +14,10 @@ $twig = new \Twig\Environment($loader, [
 //listTickets($twig);
 
 $routeurAction = [
+     'connexion' => ['controller' =>  'Controller\User', 'methode' => 'connexion' ],
      'listTickets' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'listTickets' ],
      'newTicket' => ['controller' => 'Controller\helpdesk', 'methode' => 'newTicket' ],
-     'ticketId' => ['controller' => 'Controller\helpdesk', 'methode' => 'ticketId' ],
+     'ticket' => ['controller' => 'Controller\helpdesk', 'methode' => 'ticket' ],
 
      //'connexion' => ['controller' => 'Controller\User', 'methode' => 'connexion' ],
 ];  

@@ -59,15 +59,21 @@ require_once('models/ticketManager.php');
             $ticketManager = new \Model\ticketManager(); 
             $tickets = $ticketManager->getTickets(); 
 
-            echo $twig->render('home.html.twig', ['tickets'=>$tickets]);
+            echo $twig->render('listTicket.html.twig', ['tickets'=>$tickets]);
         }
 
-        function ticket()
+        function ticket($twig)
         {
-            $ticketManager = new ticketManager();
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+            $ticketManager = new \Model\ticketManager();
             $ticket = $ticketManager->getTicket($_GET['id']);
 
-            echo $twig->render('detailTicket.html.twig');
+            echo $twig->render('detailTicket.html.twig', ['ticket'=>$ticket]);
+                
+            }
+            else {
+                echo 'Erreur : Aucun ticket Trouvé';
+            }
         }
        
     }
