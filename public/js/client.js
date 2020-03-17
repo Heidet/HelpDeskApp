@@ -17,6 +17,7 @@ function ajaxGet(url, callback) {
     req.send(null);
 }; 
 
+// Requete test pour rappel information client 
 ajaxGet("http://localhost:8888/public/js/numeroClient.json", function (reponse) {
     // Transforme la réponse en tableau d'objets JavaScript
     var numeroClient = JSON.parse(reponse);
