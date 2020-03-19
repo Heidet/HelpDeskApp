@@ -38,3 +38,5 @@ CREATE TABLE `helpdesk`.`admin` (
     UNIQUE `username` (`username`)
     ) ENGINE = InnoDB;
 ALTER TABLE `admin` CHANGE `pass` `hash` VARCHAR(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL; 
+
+INSERT INTO `admin` (`id`, `username`, `hash`) VALUES (NULL, 'Admin1', '53510e0394449b458895fc4dc05b34f400c9e929fd12503ebce7cdab282b73c1'); 

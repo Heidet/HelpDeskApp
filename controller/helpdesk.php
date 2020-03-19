@@ -24,7 +24,7 @@ require_once('models/ticketManager.php');
                 $priorite = null;
                 $categorie = null;
                 $contenu = null;
-                if(isset($_POST['titre'])) $titre = $_POST['titre']; // 
+                if(isset($_POST['titre'])) $titre = $_POST['titre']; 
                 if(isset($_POST['numeroClient'])) $numeroClient = $_POST['numeroClient'];
                 if(isset($_POST['nom'])) $nom = $_POST['nom'];
                 if(isset($_POST['prenom'])) $prenom = $_POST['prenom'];
@@ -44,7 +44,7 @@ require_once('models/ticketManager.php');
                 }
                 else {
                     echo "ajout ok";
-                    //header('Location: localhost:8888/views/helpdesk/newTicket.php'); 
+                    //header('Location: localhost:8888/'); 
                 }
             }
 

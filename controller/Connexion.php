@@ -1,6 +1,6 @@
 <?php namespace Controller;
 
-class User
+class Connexion
 {
     function connexionView()
     {
@@ -12,7 +12,7 @@ class User
         $adminManager = new \Model\adminManager();
         if($adminManager->checkConnexion($username, $password) == 1 ){
             $_SESSION['Logged'] = true;
-            header('Location: index.php?action=adminPanel');
+            header('Location: index.php?action=dash');
         }
         return $adminManager->checkConnexion($username, $password);
     

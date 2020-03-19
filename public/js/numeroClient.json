@@ -1,17 +1,18 @@
 [
 
     {
-      "numéroClient": 1,
+      "numeroClient": 1,
       "nom": "Jukes",
       "prenom": "Dan",
       "mail": "dan.brukes@mail.com",
       "zip": "90000",
       "ville": "belfort",
       "contact": "0112333210"
+       
     },
 
     {
-        "numéroClient": 2 ,
+        "numeroClient": 2,
         "nom": "Doe",
         "prenom": "John",
         "mail": "doe.john@protonmail.com",
@@ -21,7 +22,7 @@
     },
 
     {
-        "numéroClient": 3,
+        "numeroClient": 3,
         "nom": "dupond",
         "prenom": "John",
         "mail": "john.dupond12@gmail.com",
@@ -31,7 +32,7 @@
     },
 
     {
-        "numéroClient": 4,
+        "numeroClient": 4,
         "nom": "Bonie",
         "prenom": "Dan",
         "mail": "dan.bonie10@hotmail.com",

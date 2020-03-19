@@ -26,3 +26,4 @@ ajaxGet("http://localhost:8888/public/js/numeroClient.json", function (reponse) 
         console.log(client.nom);
     })
 });
+
