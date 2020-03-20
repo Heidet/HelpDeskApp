@@ -12,13 +12,11 @@ class clientManager extends Manager
         return $affectedLines;
     }
 
-    public function getClient($clientId)
+    public function getClients()
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT * FROM clients WHERE id = ?');
-        $req->execute(array($clientId)); // Bindparam
-        $client = $req->fetch();
-    
-        return $client;
+        $req = $db->query('SELECT * FROM clients ORDER BY id DESC');
+
+        return $req;
     }
 }

@@ -26,14 +26,17 @@ ALTER TABLE `tickets` ADD `titre` VARCHAR(64) NOT NULL AFTER `id`;
 CREATE TABLE `helpdesk`. ( 
     `id` INT NOT NULL AUTO_INCREMENT , 
     `numeroClient` TEXT NOT NULL , 
-    `date` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP , `
-    nom` TEXT NOT NULL , 
+    `date` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+    `nom` TEXT NOT NULL , 
     `prenom` TEXT NOT NULL , 
     `mail` TEXT NOT NULL , 
     `ville` TEXT NOT NULL , 
     `zip` TEXT NOT NULL , 
     `contact` TEXT NOT NULL 
     ) ENGINE = InnoDB; 
+
+------- TEST ------ 
+    INSERT INTO `clients` (`id`, `date`, `nom`, `prenom`, `mail`, `ville`, `zip`, `contact`) VALUES ('1', CURRENT_TIMESTAMP, 'utilisateur', 'utilisateur', 'utilisateur@user.fr', 'user', '90440', '1234567890');
 
 
 ------------- Table User_HelpDesk -------------

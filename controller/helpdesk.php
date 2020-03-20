@@ -6,6 +6,7 @@
 
 // Chargement des classes
 require_once('models/ticketManager.php');
+require_once('models/clientManager.php');
 
     class Helpdesk 
     {
@@ -84,4 +85,13 @@ require_once('models/ticketManager.php');
             echo json_encode($clients  -> fetchAll()); 
             
         }
+   
+       /*function listClients()
+        {
+            $ticketManager = new \Model\ticketManager(); 
+            $clients = $ticketManager->getTickets(); 
+
+            header('Content-type: application/json');
+            echo json_encode($clients  -> fetchAll()); 
+        }*/
    }
