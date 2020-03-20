@@ -75,5 +75,13 @@ require_once('models/ticketManager.php');
                 echo 'Erreur : Aucun ticket Trouvé';
             }
         }
-       
-    }
+        function listClients()
+        {
+            $ticketManager = new \Model\ticketManager(); 
+            $tickets = $ticketManager->getTickets(); 
+            
+            header('Content-type: application/json');
+            echo json_encode($tickets -> fetchAll()); 
+            
+        }
+   }

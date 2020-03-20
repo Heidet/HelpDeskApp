@@ -1,16 +1,13 @@
 [
-
     {
-      "numeroClient": 1,
-      "nom": "Jukes",
-      "prenom": "Dan",
-      "mail": "dan.brukes@mail.com",
-      "zip": "90000",
-      "ville": "belfort",
-      "contact": "0112333210"
-       
+        "numeroClient": 1,
+        "nom": "Jukes",
+        "prenom": "Dan",
+        "mail": "dan.brukes@mail.com",
+        "zip": "90000",
+        "ville": "belfort",
+        "contact": "0112333210"
     },
-
     {
         "numeroClient": 2,
         "nom": "Doe",
@@ -20,7 +17,6 @@
         "ville": "Paris",
         "contact": "0287569054"
     },
-
     {
         "numeroClient": 3,
         "nom": "dupond",
@@ -30,7 +26,6 @@
         "ville": "Mulhouse",
         "contact": "0983789873"
     },
-
     {
         "numeroClient": 4,
         "nom": "Bonie",
@@ -40,6 +35,4 @@
         "ville": "Valdoie",
         "contact": "0928736980"
     }
-
-    
-  ]
+]

@@ -1,7 +1,7 @@
 
 
 ///** Const liste station, recupération données appel ajax **/
-class autoloadClient {
+/*class autoloadClient {
     constructor(nom, prenom, mail, zip, ville, contact) {
         this.nom = nom;
         this.addresse = prenom;
@@ -18,4 +18,4 @@ class autoloadClient {
             $('#ville').text(this.ville);
             $('#contact').text(this.contact);
     }
-}
+}*/

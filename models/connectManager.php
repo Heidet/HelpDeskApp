@@ -1,7 +1,7 @@
 <?php
 require_once('Manager.php');
 
-class adminManager extends Manager
+class connectManager extends Manager
 {
     public function checkConnexion($username, $password)
     {

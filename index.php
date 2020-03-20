@@ -14,7 +14,8 @@ $twig = new \Twig\Environment($loader, [
 //listTickets($twig);
 
 $routeurAction = [
-     'connexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'connexion' ],
+     'listClients' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'listClients' ],
+     'checkConnexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'checkConnexion' ],
      'listTickets' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'listTickets' ],
      'newTicket' => ['controller' => 'Controller\Helpdesk', 'methode' => 'newTicket' ],
      'ticket' => ['controller' => 'Controller\Helpdesk', 'methode' => 'ticket' ],
@@ -25,7 +26,7 @@ $routeurAction = [
 $controller_name = $routeurAction[$_GET['action']]['controller'];
 $methode_name = $routeurAction[$_GET['action']]['methode'];
 
-echo $methode_name;
+//echo $methode_name;
 
 $controller = new $controller_name;
 $controller->$methode_name($twig);
