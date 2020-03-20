@@ -5,7 +5,9 @@ CREATE TABLE `helpdesk`.`tickets` (
     `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ,
     `content` TEXT NOT NULL ,
     PRIMARY KEY (`id`)
-) ENGINE = InnoDB;
+    ) ENGINE = InnoDB;
+
+    
 ALTER TABLE `tickets` CHANGE `title` `numeroClient` VARCHAR(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL; 
 ALTER TABLE `tickets` CHANGE `content` `nom` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL; 
 ALTER TABLE `tickets` ADD `prenom` TEXT NOT NULL AFTER `nom`; 
@@ -18,6 +20,20 @@ ALTER TABLE `tickets` ADD `categorie` TEXT NOT NULL AFTER `priorite` ;
 ALTER TABLE `tickets` ADD `document` TEXT NOT NULL AFTER `categorie` ;
 ALTER TABLE `tickets` ADD `contenu` TEXT NOT NULL AFTER `document` ;
 ALTER TABLE `tickets` ADD `titre` VARCHAR(64) NOT NULL AFTER `id`; 
+
+------------- Table Client ----------- 
+
+CREATE TABLE `helpdesk`. ( 
+    `id` INT NOT NULL AUTO_INCREMENT , 
+    `numeroClient` TEXT NOT NULL , 
+    `date` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP , `
+    nom` TEXT NOT NULL , 
+    `prenom` TEXT NOT NULL , 
+    `mail` TEXT NOT NULL , 
+    `ville` TEXT NOT NULL , 
+    `zip` TEXT NOT NULL , 
+    `contact` TEXT NOT NULL 
+    ) ENGINE = InnoDB; 
 
 
 ------------- Table User_HelpDesk -------------

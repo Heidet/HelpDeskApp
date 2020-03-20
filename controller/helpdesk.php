@@ -77,11 +77,11 @@ require_once('models/ticketManager.php');
         }
         function listClients()
         {
-            $ticketManager = new \Model\ticketManager(); 
-            $tickets = $ticketManager->getTickets(); 
+            $clientManager = new \Model\clientManager(); 
+            $clients = $clientManager->getClients(); 
             
             header('Content-type: application/json');
-            echo json_encode($tickets -> fetchAll()); 
+            echo json_encode($clients  -> fetchAll()); 
             
         }
    }
