@@ -6,8 +6,8 @@ class clientManager extends Manager
     public function addClient($numeroClient, $nom, $prenom, $mail, $ville, $zip, $contact)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare("INSERT INTO `clients` (`numeroClient`, `date`, `nom`, `prenom`, `mail`, `ville`, `zip`, `contact`) VALUES ( ?, CURRENT_TIMESTAMP, ?, ?, ?, ?, ?, ?);");
-        $affectedLines = $req->execute(array($numeroClient, $nom, $prenom, $mail, $ville, $zip, $contact)); // recupération title content 
+        $req = $db->prepare("INSERT INTO `clients` (`nom`,  `date`, `prenom`, `mail`, `ville`, `zip`, `contact`) VALUES ( ?, CURRENT_TIMESTAMP, ?, ?, ?, ?, ?);");
+        $affectedLines = $req->execute(array($nom, $prenom, $mail, $ville, $zip, $contact)); // recupération title content 
 
         return $affectedLines;
     }

@@ -82,16 +82,6 @@ require_once('models/clientManager.php');
             $clients = $clientManager->getClients(); 
             
             header('Content-type: application/json');
-            echo json_encode($clients  -> fetchAll()); 
-            
-        }
-   
-       /*function listClients()
-        {
-            $ticketManager = new \Model\ticketManager(); 
-            $clients = $ticketManager->getTickets(); 
-
-            header('Content-type: application/json');
-            echo json_encode($clients  -> fetchAll()); 
-        }*/
+            echo json_encode($clients->fetchAll()); 
+        }  
    }

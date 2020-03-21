@@ -23,20 +23,20 @@ ALTER TABLE `tickets` ADD `titre` VARCHAR(64) NOT NULL AFTER `id`;
 
 ------------- Table Client ----------- 
 
-CREATE TABLE `helpdesk`. ( 
-    `id` INT NOT NULL AUTO_INCREMENT , 
-    `numeroClient` TEXT NOT NULL , 
-    `date` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP ,
-    `nom` TEXT NOT NULL , 
-    `prenom` TEXT NOT NULL , 
-    `mail` TEXT NOT NULL , 
-    `ville` TEXT NOT NULL , 
-    `zip` TEXT NOT NULL , 
-    `contact` TEXT NOT NULL 
-    ) ENGINE = InnoDB; 
+CREATE TABLE `helpdesk`.`clients` ( 
+    `id` INT NOT NULL AUTO_INCREMENT ,
+    `nom` VARCHAR(64) NOT NULL ,
+    `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+    `prenom` TEXT NOT NULL ,
+    `mail` TEXT NOT NULL ,
+    `zip` TEXT NOT NULL ,
+    `ville` TEXT NOT NULL ,
+    `contact` TEXT NOT NULL ,
+    PRIMARY KEY (`id`)
+    ) ENGINE = InnoDB;
 
 ------- TEST ------ 
-    INSERT INTO `clients` (`id`, `date`, `nom`, `prenom`, `mail`, `ville`, `zip`, `contact`) VALUES ('1', CURRENT_TIMESTAMP, 'utilisateur', 'utilisateur', 'utilisateur@user.fr', 'user', '90440', '1234567890');
+ INSERT INTO `clients` (`id`, `nom`, `date`, `prenom`, `mail`, `zip`, `ville`, `contact`) VALUES (NULL, 'heidet', CURRENT_TIMESTAMP, 'antoine', 'mail@mail.com', '90000', 'belfort', 'contact');
 
 
 ------------- Table User_HelpDesk -------------

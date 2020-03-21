@@ -1,7 +1,7 @@
 
 
 ///** Const liste station, recupération données appel ajax **/
-/*class autoloadClient {
+class autoloadClient {
     constructor(nom, prenom, mail, zip, ville, contact) {
         this.nom = nom;
         this.addresse = prenom;
@@ -11,11 +11,11 @@
         this.contact = contact;
     }
     showClient() {
-            $('#nom').text(this.nom);
-            $('#prenom').text(this.prenom);
-            $('#mail').text(this.mail);
-            $('#zip').text(this.zip);
-            $('#ville').text(this.ville);
-            $('#contact').text(this.contact);
+            $('#nom').val(this.nom);
+            $('#prenom').val(this.prenom);
+            $('#mail').val(this.mail);
+            $('#zip').val(this.zip);
+            $('#ville').val(this.ville);
+            $('#contact').val(this.contact);
     }
-}*/
+}

@@ -1,35 +1,78 @@
 {% extends "layout.html.twig" %}
 {% block title %}{{ parent() }} - Nouveau-Ticket{% endblock %}
 {% block content %}
+    <script>
 
 
-{% block contentForm %}     
+  $( function() {
+    function log( message ) {
+      $( "<input>" ).text( message ).prependTo( "#prenom" );
+      $( "#prenom" ).scrollTop( 0 );
+    }
+ 
+    $( "#numeroClient" ).autocomplete({
+      source: function( request, response ) {
+        $.ajax( {
+          url: "http://localhost:8888/index.php?action=listClients",
+          dataType: "json",
+          data: {
+            nom: request.nom
+          },
+          success: function( data ) {
+            
+            data.forEach(function (datas) {
+         
+            //console.log(datas.nom)
+            })
+            response( data );
+            console.log(data);
+
+          }
+        } );
+      },
+      //minLength: 2,
+      /*select: function( event, ui ) {
+        log( "Selected: " + ui.item.nom + " aka " + ui.item.prenom);
+      }*/
+    } );
+  } );
+
+
+  </script>
+
 <div class="container-fluid mt-3">
   <div class="row">        
       <div class="col-lg-12">
-      {% block ticketNumber %} 
-      {% endblock %}
-          <form class="needs-validation" method="post" novalidate>
+        <div class="col-md-4 mb-3">
+            Numéro d'incident : <strong>Nouveau{{ ticket.id }}</strong>
+        </div>
+          <form class="needs-validation" action="" method="post" novalidate>
             <div class="form-row">
                 <div class="col-md-4 mb-3">
+                <div class="ui-widget">
                     <label for="validationTooltip01">Numéro Client</label>
-                    <input type="text" class="form-control" id="numeroClient"  name="numeroClient" value="{{ ticket.titre }}" required>
+                    <input type="text" class="form-control" id="numeroClient"   name="numeroClient" value="{{ client.id }}" required>
                       <div class="invalid-tooltip">
                         Saisir le numéro de client.
                       </div>
                 </div>
+                </div>
 
               <div class="col-md-4 mb-3">
+              <div class="ui-widget">
                 <label for="validationTooltip02">Nom</label>
-                <input type="text" class="form-control" id="nom" name="nom" value="{{ ticket.nom }}" required>
+                <input type="text" class="form-control" id="nom"  name="nom" value="{{ client.nom }}" required>
+              </div>
                   <div class="invalid-tooltip">
                     Saisir l'utilisateur.
                   </div>
               </div>
 
               <div class="col-md-4 mb-3">
+              <div class="ui-widget">
                 <label for="validationTooltip02">Prenom</label>
-                <input type="text" class="form-control" id="prenom"  name="prenom" value="{{ ticket.prenom }}" required>
+                <input type="text" class="ui-widget-content" id="prenom"  name="prenom" value="{{ client.prenom }}" required>
+              </div>
                   <div class="invalid-tooltip">
                     Saisir le Prenom.
                   </div>
@@ -42,7 +85,7 @@
                         <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
                       </div>
                     <input type="text" class="form-control" id="mail"
-                      aria-describedby="validationTooltipUsernamePrepend"  name="mail" value="{{ ticket.mail }}" required>
+                      aria-describedby="validationTooltipUsernamePrepend"  name="mail" value="{{ client.mail }}" required>
                       <div class="invalid-tooltip">
                         Saisir l'adresse mail utilisateur.
                       </div>
@@ -51,7 +94,7 @@
 
               <div class="col-md-4 mb-3">
                     <label for="validationTooltip03">Ville</label>
-                    <input type="text" class="form-control" id="ville"  name="ville" value="{{ ticket.ville }}" required>
+                    <input type="text" class="form-control" id="ville"  name="ville" value="{{ client.ville }}" required>
                       <div class="invalid-tooltip">
                         Saisir une Ville.
                       </div>
@@ -59,7 +102,7 @@
 
               <div class="col-md-3 mb-3">
                   <label for="validationTooltip05">Zip</label>
-                  <input type="text" class="form-control" id="zip"  name="zip" value="{{ ticket.zip }}" required>
+                  <input type="text" class="form-control" id="zip"  name="zip" value="{{ client.zip }}" required>
                     <div class="invalid-tooltip">
                       Saisir code postal.
                     </div>
@@ -67,7 +110,7 @@
 
               <div class="col-md-3 mb-3">
                   <label for="validationTooltip05">Contact</label>
-                  <input type="text" class="form-control" id="contact"  name="contact" value="{{ ticket.contact }}" required>
+                  <input type="text" class="form-control" id="contact"  name="contact" value="{{ client.contact }}" required>
                     <div class="invalid-tooltip">
                       Saisir le contact.
                     </div>
@@ -123,10 +166,9 @@
                   <input type="file" class="form-control-file" id="document"  name="document" value="">
                 </div>
             </div> 
-            <button class="btn btn-primary" type="submit">Enregistrer</button>
+            <p><button class="btn btn-primary" type="submit">Enregistrer</button></p>
 
       </form>
     </div>
   </div>
-{% endblock %}
 {% endblock %}
