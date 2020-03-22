@@ -1,10 +1,7 @@
 <?php namespace Controller;
 
- /**if(!isset($_SESSION['Logged']) || $_SESSION['Logged'] !=  true){
-    header('Location: index.php?action=connexion');
- } // Si le mot de passe est bon sur les connexion des pages BackEnd**/
 
-// Chargement des classes
+
 require_once('models/ticketManager.php');
 require_once('models/clientManager.php');
 
@@ -84,4 +81,20 @@ require_once('models/clientManager.php');
             header('Content-type: application/json');
             echo json_encode($clients->fetchAll()); 
         }  
+        function connexion($twig) 
+        {
+            if(isset($_SESSION['Logged']) && $_SESSION['Logged'] =  true){
+                echo $twig->render('listTicket.html.twig');
+             }
+            if (isset($_POST['username']) && isset($_POST['password'])) {
+                if (!empty($_POST['username']) && !empty($_POST['password'])) {
+                    $controlConnexion = new \Controller\Connexion();
+                    $controlConnexion->checkConnexion($_POST['username'],  $_POST['password']);
+                }
+                else {
+                    echo 'Erreur : tous les champs ne sont pas remplis !';
+                }
+            }
+            echo $twig->render('connexion.html.twig');
+        }
    }

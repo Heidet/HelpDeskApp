@@ -1,4 +1,4 @@
-<?php
+<?php namespace Model;
 require_once('Manager.php');
 
 class connectManager extends Manager

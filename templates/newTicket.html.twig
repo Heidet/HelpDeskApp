@@ -13,7 +13,7 @@
     $( "#numeroClient" ).autocomplete({
       source: function( request, response ) {
         $.ajax( {
-          url: "http://localhost:8888/index.php?action=listClients",
+          url: "http://localhost:8888/public/js/numeroClient.json",
           dataType: "json",
           data: {
             nom: request.nom

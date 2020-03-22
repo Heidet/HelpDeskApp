@@ -15,7 +15,9 @@ class clientManager extends Manager
     public function getClients()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT * FROM clients ORDER BY id DESC');
+        $req = $db->query('SELECT * FROM clients ORDER BY id DESC ');
+        $req->execute(array()); // Bindparam
+       
 
         return $req;
     }

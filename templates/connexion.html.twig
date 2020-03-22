@@ -1,3 +1,4 @@
+{% extends "layout.html.twig" %}
 
 
 {% block title %}{{ parent() }} - Connexion{% endblock %}
@@ -6,7 +7,7 @@
 <div class="container pt-5">
 	<div class="d-flex justify-content-center h-100">
 		
-        <form class="form-signin">
+        <form method="post" class="form-signin">
             <div class="text-center mb-4">
                 <img class="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
                 <h1 class="h3 mb-3 font-weight-normal">HelpDesk</h1>
@@ -18,8 +19,8 @@
             </div>
 
             <div class="form-label-group">
-                <input type="hash" name="hash" id="hash" class="form-control" placeholder="Mot de passe" required="">
-                <label for="hash">Password</label>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Mot de passe" required="">
+                <label for="password">Password</label>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
         </form>

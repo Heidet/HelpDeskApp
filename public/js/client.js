@@ -1,14 +1,14 @@
 
 
 
-/*ajaxGet("http://localhost:8888/index.php?action=lis/tClients", function (reponse) {
+ajaxGet("http://localhost:8888/public/js/numeroClient.json", function (reponse) {
     // Transforme la réponse en tableau d'objets JavaScript
     var numeroClients = JSON.parse(reponse);
     // Affiche le titre de chaque film
     numeroClients.forEach(function (client) {
         console.log(client.nom);
     })
-});*/
+});
 
 /*$( function() {
     function log( message ) {
