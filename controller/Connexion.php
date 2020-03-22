@@ -15,10 +15,17 @@ class Connexion
         $adminManager = new \Model\connectManager();
         if($adminManager->checkConnexion($username, $password) == 1 ){
             $_SESSION['Logged'] = true;
-            echo $twig->render('listTicket.html.twig', ['tickets'=>$tickets]);
+            $listTickets = new \Controller\Helpdesk();
+            $listTickets->listTickets($twig);
         }
         return $adminManager->checkConnexion($username, $password);
     
+    }
+    function deconnexion($twig) 
+    {
+            session_destroy();
+            echo $twig->render('connexion.html.twig');
+
     }
 }
 
