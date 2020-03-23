@@ -3,7 +3,7 @@ require_once('Manager.php');
 
 class connectManager extends Manager
 {
-    public function checkConnexion($username, $password)
+    public function userConnexion($username, $password)
     {
         $db = $this->dbConnect();
         $connect = $db->prepare('SELECT COUNT(id) FROM admin WHERE username = ? AND hash = ?'); // selectionner tout les utilisateur et verifier 

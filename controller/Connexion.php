@@ -3,24 +3,39 @@ require_once('models/connectManager.php');
 
 class Connexion
 {
-
     function checkConnexion($twig)
     {
-       
-            $username = null;
-            $password = null;
-            if(isset($_POST['username'])) $username = $_POST['username']; 
-            if(isset($_POST['password'])) $password = $_POST['password'];
 
-        $adminManager = new \Model\connectManager();
-        if($adminManager->checkConnexion($username, $password) == 1 ){
-            $_SESSION['Logged'] = true;
-            $listTickets = new \Controller\Helpdesk();
-            $listTickets->listTickets($twig);
+        $username = null;
+        $password = null;
+        if(isset($_POST['username'])) $titre = $_POST['username']; 
+        if(isset($_POST['password'])) $numeroClient = $_POST['password'];
+        
+        if(isset($_SESSION['Logged']) && $_SESSION['Logged'] =  true){
+            echo $twig->render('listTicket.html.twig');
         }
-        return $adminManager->checkConnexion($username, $password);
-    
+        if(!isset($_SESSION['Logged']) || $_SESSION['Logged'] !=  true){
+            echo $twig->render('connexion.html.twig');
+            
+        }
+            if (!empty($_POST['username']) && !empty($_POST['password'])) {
+                $connectManager = new \Model\connectManager();
+                if($connectManager->userConnexion($username, $password) == 1 ){
+                    $_SESSION['Logged'] = true;
+                    echo $twig->render('listTicket.html.twig');
+                }
+                return $connectManager->userConnexion($username, $password);
+                echo ' ok connecter';
+
+            }
+            else {
+                echo 'Erreur : tous les champs ne sont pas remplis !';
+            }
+        
+
     }
+
+  
     function deconnexion($twig) 
     {
             session_destroy();

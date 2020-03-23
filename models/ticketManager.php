@@ -29,5 +29,13 @@ class ticketManager extends Manager
     
         return $ticket;
     }
+    public function deleteTicket($ticketId)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('DELETE FROM tickets WHERE id = ?');
+        $affectedLines = $req->execute(array($ticketId));
+
+        return $affectedLines; 
+    }
     
 }
