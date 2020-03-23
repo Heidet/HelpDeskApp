@@ -82,35 +82,23 @@ require_once('models/clientManager.php');
     
         function editTicket($twig)
         {   
-                $ticketId = $_GET['id'];
-                $titre = null;
-                $numeroClient = null;
-                $nom = null;
-                $prenom = null;
-                $mail = null;
-                $ville = null;
-                $zip = null;
-                $contact = null;
-                $priorite = null;
-                $categorie = null;
-                $contenu = null;
-                        
-                if (isset($_GET['id']) && $_GET['id'] > 0){
-                    if(isset($_POST['titre']) && isset($_POST['numeroClient']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['mail']) && isset($_POST['ville']) && isset($_POST['zip']) && isset($_POST['contact']) && isset($_POST['priorite']) && isset($_POST['categorie']) && isset($_POST['contenu'])){
+                
+            if (isset($_GET['id']) && $_GET['id'] > 0){
+                if(isset($_POST['titre']) && isset($_POST['numeroClient']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['mail']) && isset($_POST['ville']) && isset($_POST['zip']) && isset($_POST['contact']) && isset($_POST['priorite']) && isset($_POST['categorie']) && isset($_POST['contenu'])){
                     
                     $ticketManager = new \Model\ticketManager();
-                    $affectedLines = $ticketManager->editPost($ticketId, $titre, $numeroClient, $nom, $prenom, $mail, $ville, $zip, $contact, $priorite, $categorie, $contenu);
+                    $affectedLines = $ticketManager->editTicket($_GET['id'], $_POST['titre'], $_POST['numeroClient'], $_POST['nom'], $_POST['prenom'], $_POST['mail'], $_POST['ville'], $_POST['zip'], $_POST['contact'], $_POST['priorite'], $_POST['categorie'], $_POST['contenu']);
                     
-
                     if ($affectedLines === false) {
                         throw new \Exception('Impossible de modifier ce ticket !'); // lever l'exception XXXX 
                     }
                     else {
-                        echo "ajout ok";
-                        //echo $twig->render('listTicket.html.twig', ['tickets'=>$tickets]); //Pour rester sur la même page une fois l'action supprimer.
+                        //echo "ajout ok";
+                        $tickets = $ticketManager->getTickets(); 
+                        echo $twig->render('listTicket.html.twig', ['tickets'=>$tickets]); //Pour rester sur la même page une fois l'action supprimer.
                     }
                 }
-                else{ // NON c'est que le formulaire n'a pas été valider 
+                else { // NON c'est que le formulaire n'a pas été valider 
                     $ticketManager = new \Model\ticketManager(); // Création d'un objet
                     $ticket = $ticketManager->getTicket($_GET['id']); // Appel d'une fonction de cet objet
                     //editTicketView($_GET['id']); // Donc vue édition post 
