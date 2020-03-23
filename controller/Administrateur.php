@@ -1,4 +1,6 @@
-<?php namespace Administrateur
+<?php namespace Controller;
+
+class Administrateur
 {
     
     function deleteTicket($twig)

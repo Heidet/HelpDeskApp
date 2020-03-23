@@ -3,13 +3,13 @@
 require_once('models/ticketManager.php');
 require_once('models/clientManager.php');
 
-    class Helpdesk 
+    class Helpdesk  
     {
 
         function newTicket($twig)
         {
             if(isset($_POST)&& !empty($_POST)){
-                $titre = null;
+                /*$titre = null;
                 $numeroClient = null;
                 $nom = null;
                 $prenom = null;
@@ -19,7 +19,7 @@ require_once('models/clientManager.php');
                 $contact = null;
                 $priorite = null;
                 $categorie = null;
-                $contenu = null;
+                $contenu = null;*/
                 if(isset($_POST['titre'])) $titre = $_POST['titre']; 
                 if(isset($_POST['numeroClient'])) $numeroClient = $_POST['numeroClient'];
                 if(isset($_POST['nom'])) $nom = $_POST['nom'];
@@ -40,7 +40,7 @@ require_once('models/clientManager.php');
                 }
                 else {
                     echo "ajout ok";
-                    //header('Location: localhost:8888/'); 
+                    //echo $twig->render('newTicket.html.twig'); 
                 }
             }
 
@@ -79,19 +79,45 @@ require_once('models/clientManager.php');
             header('Content-type: application/json');
             echo json_encode($clients->fetchAll()); 
         }  
-        /*function connexion($twig) 
-        {
-            if(isset($_SESSION['Logged']) && $_SESSION['Logged'] =  true ){
-                echo $twig->render('listTicket.html.twig');
-             }
-            if (isset($_POST['username']) && isset($_POST['password'])) {
-                if (!empty($_POST['username']) && !empty($_POST['password'])) {
-                    $controlConnexion = new \Controller\Connexion();
-                    $controlConnexion->checkConnexion($_POST['username'], $_POST['password']);
+    
+        function editTicket($twig)
+        {   
+                $ticketId = $_GET['id'];
+                $titre = null;
+                $numeroClient = null;
+                $nom = null;
+                $prenom = null;
+                $mail = null;
+                $ville = null;
+                $zip = null;
+                $contact = null;
+                $priorite = null;
+                $categorie = null;
+                $contenu = null;
+                        
+                if (isset($_GET['id']) && $_GET['id'] > 0){
+                    if(isset($_POST['titre']) && isset($_POST['numeroClient']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['mail']) && isset($_POST['ville']) && isset($_POST['zip']) && isset($_POST['contact']) && isset($_POST['priorite']) && isset($_POST['categorie']) && isset($_POST['contenu'])){
+                    
+                    $ticketManager = new \Model\ticketManager();
+                    $affectedLines = $ticketManager->editPost($ticketId, $titre, $numeroClient, $nom, $prenom, $mail, $ville, $zip, $contact, $priorite, $categorie, $contenu);
+                    
+
+                    if ($affectedLines === false) {
+                        throw new \Exception('Impossible de modifier ce ticket !'); // lever l'exception XXXX 
+                    }
+                    else {
+                        echo "ajout ok";
+                        //echo $twig->render('listTicket.html.twig', ['tickets'=>$tickets]); //Pour rester sur la même page une fois l'action supprimer.
+                    }
                 }
-                else {
-                    echo 'Erreur : tous les champs ne sont pas remplis !';
+                else{ // NON c'est que le formulaire n'a pas été valider 
+                    $ticketManager = new \Model\ticketManager(); // Création d'un objet
+                    $ticket = $ticketManager->getTicket($_GET['id']); // Appel d'une fonction de cet objet
+                    //editTicketView($_GET['id']); // Donc vue édition post 
+                    echo $twig->render('detailTicket.html.twig', ['ticket'=>$ticket]);
                 }
+
             }
-        }*/
+        }
+
    }

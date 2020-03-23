@@ -10,7 +10,7 @@ class Connexion
         $password = null;
         if(isset($_POST['username'])) $titre = $_POST['username']; 
         if(isset($_POST['password'])) $numeroClient = $_POST['password'];
-        
+
         if(isset($_SESSION['Logged']) && $_SESSION['Logged'] =  true){
             echo $twig->render('listTicket.html.twig');
         }

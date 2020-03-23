@@ -25,6 +25,7 @@ $twig->addGlobal('session', $session);*/
             'deconnexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'deconnexion' ],         
             'listClients' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'listClients' ],
             'editTicket' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'editTicket' ],
+            //'editTicketView' => ['controller' =>  'Controller\viewTicket', 'methode' => 'editTicketView' ],
             'listTickets' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'listTickets' ],
             'newTicket' => ['controller' => 'Controller\Helpdesk', 'methode' => 'newTicket' ],
             'ticket' => ['controller' => 'Controller\Helpdesk', 'methode' => 'ticket' ]
