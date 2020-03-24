@@ -42,10 +42,16 @@ require_once('models/clientManager.php');
 
         function listTickets($twig)
         {
+            
             $ticketManager = new \Model\ticketManager(); 
             $tickets = $ticketManager->getTickets(); 
+            if(!isset($_SESSION['Logged']) || $_SESSION['Logged'] !=  true){
+                echo $twig->render('connexion.html.twig');
+             }
 
+             else {
             echo $twig->render('listTicket.html.twig', ['tickets'=>$tickets]);
+             }
         }
 
         function ticket($twig)
@@ -61,14 +67,6 @@ require_once('models/clientManager.php');
                 echo 'Erreur : Aucun ticket Trouvé';
             }
         }
-        /*function listClients()
-        {
-            $clientManager = new \Model\clientManager(); 
-            $clients = $clientManager->getClients(); 
-            
-            header('Content-type: application/json');
-            echo json_encode($clients -> fetchAll()); 
-        }*/
 
         function listClients()
         {
@@ -79,10 +77,6 @@ require_once('models/clientManager.php');
             header('Content-type: application/json');
             echo json_encode($clients -> fetchAll());
         }
-
-
-        
-         // il n'y a plus qu'à convertir en JSON
         
     
         function editTicket($twig)

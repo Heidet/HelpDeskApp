@@ -11,19 +11,18 @@ $loader = new \Twig\Loader\FilesystemLoader('./templates');
 $twig = new \Twig\Environment($loader, [
     //'cache' => './cache',
     ]);
-    
+ 
 /*$session = new Session();
 $session->start();
 $twig->addGlobal('session', $session);*/
 
 /*--------- Routage home page ---------*/ 
-if ($_GET['action'] == ''){
-    $home = new \Controller\Helpdesk();
-    $homePage = $home->listTickets($twig);
+if ($_GET['action'] == NULL){
+    $home = new \Controller\Connexion();
+    $homePage = $home->checkConnexion($twig); // FUTUR ROUTAGE CNEXXION USER AND ADMIN !!!!!
     }
-
 /*--------- Routage méthode et action ---------*/ 
-    else {
+   else {
        
         $routeurAction = [
             'connexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'checkConnexion' ],
@@ -42,7 +41,7 @@ if ($_GET['action'] == ''){
             
             $controller = new $controller_name;
             $controller->$methode_name($twig);
+
     }
-                
     //var_dump($controller);
     //$controller->$routeurAction[$_GET['action']]['methode']($twig);
