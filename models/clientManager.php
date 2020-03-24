@@ -15,10 +15,33 @@ class clientManager extends Manager
     public function getClients()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT * FROM clients ORDER BY id DESC ');
-        $req->execute(array()); // Bindparam
-       
+        $req = $db->query("SELECT * FROM `clients`  ORDER BY id DESC");
+        //$req->execute(); // Bindparam
+        
 
-        return $req;
+       return $req;
     }
+
+    /*public function getClients($term)
+    {
+        
+        $db = $this->dbConnect();
+        $term = $_GET['term'];
+        $req = $db->prepare('SELECT * FROM clients WHERE nom LIKE :term'); // j'effectue ma requête SQL grâce au mot-clé LIKE
+        $req->execute(array('term' => '%'.$term.'%'));
+        $array = array(); // on créé le tableau
+            while($donnee = $req->fetch()) // on effectue une boucle pour obtenir les données
+            {
+            array_push($array, $donnee['nom']); // et on ajoute celles-ci à notre tableau
+            }   
+        
+        //req->execute(); // Bindparam
+        return $array;
+    }*/
+       
+        
 }
+
+
+
+

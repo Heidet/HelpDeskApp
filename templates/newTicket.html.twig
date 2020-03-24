@@ -2,42 +2,12 @@
 {% block title %}{{ parent() }} - Nouveau-Ticket{% endblock %}
 {% block content %}
     <script>
-
-
-  $( function() {
-    function log( message ) {
-      $( "<input>" ).text( message ).prependTo( "#prenom" );
-      $( "#prenom" ).scrollTop( 0 );
-    }
- 
-    $( "#numeroClient" ).autocomplete({
-      source: function( request, response ) {
-        $.ajax( {
-          url: "http://localhost:8888/public/js/numeroClient.json",
-          dataType: "json",
-          data: {
-            nom: request.nom
-          },
-          success: function( data ) {
-            
-            data.forEach(function (datas) {
-         
-            //console.log(datas.nom)
-            })
-            response( data );
-            console.log(data);
-
-          }
-        } );
-      },
-      //minLength: 2,
-      /*select: function( event, ui ) {
-        log( "Selected: " + ui.item.nom + " aka " + ui.item.prenom);
-      }*/
-    } );
+          $( function() {
+          $( "#nom" ).autocomplete({
+        source: "index.php",
+        minLength: 1
+    });
   } );
-
-
   </script>
 
 <div class="container-fluid mt-3">
@@ -51,7 +21,7 @@
                 <div class="col-md-4 mb-3">
                 <div class="ui-widget">
                     <label for="validationTooltip01">Numéro Client</label>
-                    <input type="text" class="form-control" id="numeroClient"   name="numeroClient" value="{{ client.id }}" required>
+                    <input type="search" class="form-control" id="numeroClient"   name="numeroClient" value="" required>
                       <div class="invalid-tooltip">
                         Saisir le numéro de client.
                       </div>
@@ -59,20 +29,20 @@
                 </div>
 
               <div class="col-md-4 mb-3">
-              <div class="ui-widget">
-                <label for="validationTooltip02">Nom</label>
+              
+                <label for="nom">Nom</label>
                 <input type="text" class="form-control" id="nom"  name="nom" value="{{ client.nom }}" required>
-              </div>
+           
                   <div class="invalid-tooltip">
                     Saisir l'utilisateur.
                   </div>
               </div>
 
               <div class="col-md-4 mb-3">
-              <div class="ui-widget">
+              
                 <label for="validationTooltip02">Prenom</label>
                 <input type="text" class="ui-widget-content" id="prenom"  name="prenom" value="{{ client.prenom }}" required>
-              </div>
+              
                   <div class="invalid-tooltip">
                     Saisir le Prenom.
                   </div>

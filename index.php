@@ -11,15 +11,20 @@ $loader = new \Twig\Loader\FilesystemLoader('./templates');
 $twig = new \Twig\Environment($loader, [
     //'cache' => './cache',
     ]);
+    
 /*$session = new Session();
 $session->start();
 $twig->addGlobal('session', $session);*/
 
+/*--------- Routage home page ---------*/ 
+if ($_GET['action'] == ''){
+    $home = new \Controller\Helpdesk();
+    $homePage = $home->listTickets($twig);
+    }
 
-    /**/
-    
-
-        //listTickets($twig);
+/*--------- Routage méthode et action ---------*/ 
+    else {
+       
         $routeurAction = [
             'connexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'checkConnexion' ],
             'deconnexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'deconnexion' ],         
@@ -30,16 +35,14 @@ $twig->addGlobal('session', $session);*/
             'newTicket' => ['controller' => 'Controller\Helpdesk', 'methode' => 'newTicket' ],
             'ticket' => ['controller' => 'Controller\Helpdesk', 'methode' => 'ticket' ]
         ];
-
+       
             $controller_name = $routeurAction[$_GET['action']]['controller'];
             $methode_name = $routeurAction[$_GET['action']]['methode'];
-            echo $methode_name; 
+            //echo $methode_name; 
+            
             $controller = new $controller_name;
             $controller->$methode_name($twig);
-
-            //echo $controller;
-
-           
-            
+    }
+                
     //var_dump($controller);
     //$controller->$routeurAction[$_GET['action']]['methode']($twig);

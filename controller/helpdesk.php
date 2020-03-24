@@ -9,17 +9,7 @@ require_once('models/clientManager.php');
         function newTicket($twig)
         {
             if(isset($_POST)&& !empty($_POST)){
-                /*$titre = null;
-                $numeroClient = null;
-                $nom = null;
-                $prenom = null;
-                $mail = null;
-                $ville = null;
-                $zip = null;
-                $contact = null;
-                $priorite = null;
-                $categorie = null;
-                $contenu = null;*/
+
                 if(isset($_POST['titre'])) $titre = $_POST['titre']; 
                 if(isset($_POST['numeroClient'])) $numeroClient = $_POST['numeroClient'];
                 if(isset($_POST['nom'])) $nom = $_POST['nom'];
@@ -71,14 +61,29 @@ require_once('models/clientManager.php');
                 echo 'Erreur : Aucun ticket Trouvé';
             }
         }
-        function listClients()
+        /*function listClients()
         {
             $clientManager = new \Model\clientManager(); 
             $clients = $clientManager->getClients(); 
             
             header('Content-type: application/json');
-            echo json_encode($clients->fetchAll()); 
-        }  
+            echo json_encode($clients -> fetchAll()); 
+        }*/
+
+        function listClients()
+        {
+            
+            $clientManager = new \Model\clientManager(); 
+            $clients = $clientManager->getClients(); 
+
+            header('Content-type: application/json');
+            echo json_encode($clients -> fetchAll());
+        }
+
+
+        
+         // il n'y a plus qu'à convertir en JSON
+        
     
         function editTicket($twig)
         {   
