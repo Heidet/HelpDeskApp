@@ -16,24 +16,22 @@ $twig = new \Twig\Environment($loader, [
 $session->start();
 $twig->addGlobal('session', $session);*/
 
-/*--------- Routage home page ---------*/ 
-if ($_GET['action'] == NULL){
-    $home = new \Controller\Connexion();
-    $homePage = $home->checkConnexion($twig); // FUTUR ROUTAGE CNEXXION USER AND ADMIN !!!!!
-    }
 /*--------- Routage méthode et action ---------*/ 
-   else {
+
        
         $routeurAction = [
             'connexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'checkConnexion' ],
             'deconnexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'deconnexion' ],         
-            'listClients' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'listClients' ],
+            'searchClients' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'searchClients' ],
             'editTicket' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'editTicket' ],
             //'editTicketView' => ['controller' =>  'Controller\viewTicket', 'methode' => 'editTicketView' ],
             'listTickets' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'listTickets' ],
             'newTicket' => ['controller' => 'Controller\Helpdesk', 'methode' => 'newTicket' ],
             'ticket' => ['controller' => 'Controller\Helpdesk', 'methode' => 'ticket' ]
         ];
+
+        
+        //if (isset($_GET) && isset($_GET['action']) && array_key_exists($_GET['action'], array_keys($routeurAction))){
        
             $controller_name = $routeurAction[$_GET['action']]['controller'];
             $methode_name = $routeurAction[$_GET['action']]['methode'];
@@ -41,7 +39,11 @@ if ($_GET['action'] == NULL){
             
             $controller = new $controller_name;
             $controller->$methode_name($twig);
-
-    }
+        //}
+        /*else{
+            $home = new \Controller\Connexion();
+            $homePage = $home->checkConnexion($twig);
+        }*/
+    
     //var_dump($controller);
     //$controller->$routeurAction[$_GET['action']]['methode']($twig);

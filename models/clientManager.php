@@ -12,7 +12,7 @@ class clientManager extends Manager
         return $affectedLines;
     }
 
-    public function getClients()
+    /*public function getClients()
     {
         $db = $this->dbConnect();
         $req = $db->query("SELECT * FROM `clients`  ORDER BY id DESC");
@@ -20,26 +20,19 @@ class clientManager extends Manager
         
 
        return $req;
-    }
+    }*/
 
-    /*public function getClients($term)
+    public function searchClients($term)
     {
         
         $db = $this->dbConnect();
-        $term = $_GET['term'];
-        $req = $db->prepare('SELECT * FROM clients WHERE nom LIKE :term'); // j'effectue ma requête SQL grâce au mot-clé LIKE
-        $req->execute(array('term' => '%'.$term.'%'));
-        $array = array(); // on créé le tableau
-            while($donnee = $req->fetch()) // on effectue une boucle pour obtenir les données
-            {
-            array_push($array, $donnee['nom']); // et on ajoute celles-ci à notre tableau
-            }   
+        $req = $db->prepare('SELECT * FROM clients WHERE nom LIKE ? ORDER BY id DESC LIMIT 0, 5 '); // j'effectue ma requête SQL grâce au mot-clé LIKE
+        $req->execute(array('%'.$term.'%'));
         
         //req->execute(); // Bindparam
-        return $array;
-    }*/
+        return $req;
+    }
        
-        
 }
 
 

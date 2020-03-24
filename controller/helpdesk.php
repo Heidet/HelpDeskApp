@@ -68,14 +68,20 @@ require_once('models/clientManager.php');
             }
         }
 
-        function listClients()
-        {
-            
-            $clientManager = new \Model\clientManager(); 
-            $clients = $clientManager->getClients(); 
-
-            header('Content-type: application/json');
-            echo json_encode($clients -> fetchAll());
+        function searchClients()
+        {  
+            if (isset($_GET) && isset($_GET['term'])){
+                $term = $_GET['term'];
+           
+                $clientManager = new \Model\clientManager(); 
+                $clients = $clientManager->searchClients($term); 
+    
+                header('Content-type: application/json');
+                echo json_encode($clients -> fetchAll()); 
+            }
+            else {
+                return [];
+            }
         }
         
     
