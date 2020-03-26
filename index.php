@@ -18,7 +18,10 @@ $twig->addGlobal('session', $session);*/
 
 /*--------- Routage méthode et action ---------*/ 
 
-       
+//if(isset($_SESSION['Logged']) && $_SESSION['Logged'] =  true){
+ 
+ 
+
         $routeurAction = [
             'connexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'checkConnexion' ],
             'deconnexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'deconnexion' ],         
@@ -29,21 +32,22 @@ $twig->addGlobal('session', $session);*/
             'newTicket' => ['controller' => 'Controller\Helpdesk', 'methode' => 'newTicket' ],
             'ticket' => ['controller' => 'Controller\Helpdesk', 'methode' => 'ticket' ]
         ];
+//}
 
+            //if (isset($_GET) && isset($_GET['action']) && array_key_exists($_GET['action'], array_keys($routeurAction))){
+                
+                $controller_name = $routeurAction[$_GET['action']]['controller'];
+                $methode_name = $routeurAction[$_GET['action']]['methode'];
+                //echo $methode_name; 
+                $controller = new $controller_name;
+                $controller->$methode_name($twig);
+            //}
+            //else{
+                $home = new \Controller\Connexion();
+                $homePage = $home->checkConnexion($twig);
+            //}
         
-        //if (isset($_GET) && isset($_GET['action']) && array_key_exists($_GET['action'], array_keys($routeurAction))){
-       
-            $controller_name = $routeurAction[$_GET['action']]['controller'];
-            $methode_name = $routeurAction[$_GET['action']]['methode'];
-            //echo $methode_name; 
-            
-            $controller = new $controller_name;
-            $controller->$methode_name($twig);
-        //}
-        /*else{
-            $home = new \Controller\Connexion();
-            $homePage = $home->checkConnexion($twig);
-        }*/
-    
+
     //var_dump($controller);
     //$controller->$routeurAction[$_GET['action']]['methode']($twig);
+    

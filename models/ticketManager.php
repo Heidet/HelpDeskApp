@@ -14,7 +14,7 @@ class ticketManager extends Manager
     public function editTicket($ticketId, $titre, $numeroClient, $nom, $prenom, $mail, $ville, $zip, $contact, $priorite, $categorie, $contenu)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare("UPDATE tickets SET  titre = ?, numeroClient = ?, nom = ?, prenom = ?, mail = ?, ville = ?, zip = ?, contact = ?, priorite = ?, categorie = ?, contenu = ?  WHERE id = ?"); // mettre à jour la table poste ( titre = 1 champs, contenu = 2 ème champs) quand l'id = son ID 
+        $req = $db->prepare("UPDATE `tickets` SET  titre = ?, numeroClient = ?, nom = ?, prenom = ?, mail = ?, ville = ?, zip = ?, contact = ?, priorite = ?, categorie = ?, contenu = ?  WHERE id = ?"); // mettre à jour la table poste ( titre = 1 champs, contenu = 2 ème champs) quand l'id = son ID 
         $affectedLines = $req->execute(array($titre, $numeroClient, $nom, $prenom, $mail, $ville, $zip, $contact, $priorite, $categorie, $contenu, $ticketId)); // recupération title content 
         
         return $affectedLines;

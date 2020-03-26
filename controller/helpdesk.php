@@ -45,13 +45,10 @@ require_once('models/clientManager.php');
             
             $ticketManager = new \Model\ticketManager(); 
             $tickets = $ticketManager->getTickets(); 
-            if(!isset($_SESSION['Logged']) || $_SESSION['Logged'] !=  true){
-                echo $twig->render('connexion.html.twig');
-             }
-
-             else {
+            
+        
             echo $twig->render('listTicket.html.twig', ['tickets'=>$tickets]);
-             }
+             
         }
 
         function ticket($twig)
@@ -64,7 +61,7 @@ require_once('models/clientManager.php');
                 
             }
             else {
-                echo 'Erreur : Aucun ticket Trouvé';
+                echo 'Erreur : Aucun ticket trouvé';
             }
         }
 
@@ -92,7 +89,7 @@ require_once('models/clientManager.php');
                 if(isset($_POST['titre']) && isset($_POST['numeroClient']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['mail']) && isset($_POST['ville']) && isset($_POST['zip']) && isset($_POST['contact']) && isset($_POST['priorite']) && isset($_POST['categorie']) && isset($_POST['contenu'])){
                     
                     $ticketManager = new \Model\ticketManager();
-                    $affectedLines = $ticketManager->editTicket($_GET['id'], $_POST['titre'], $_POST['numeroClient'], $_POST['nom'], $_POST['prenom'], $_POST['mail'], $_POST['ville'], $_POST['zip'], $_POST['contact'], $_POST['priorite'], $_POST['categorie'], $_POST['contenu']);
+                    $affectedLines = $ticketManager->editTicket();
                     
                     if ($affectedLines === false) {
                         throw new \Exception('Impossible de modifier ce ticket !'); // lever l'exception XXXX 
@@ -111,6 +108,8 @@ require_once('models/clientManager.php');
                 }
 
             }
+
+            
         }
 
    }

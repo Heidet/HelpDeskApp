@@ -6,21 +6,37 @@
   </script>
 
 <div class="container-fluid mt-3">
-  <div class="row">        
-      <div class="col-lg-12">
+  <div class="row">     
+    <div class="col-lg-2 mt-5">
+
+    <div class="mt-3">Numéro Client: </div>
+    <br />
+    <div class="mt-3">Contact: </div>
+    <br />
+    <div class="mt-3">Carnet d'adresse: </div>
+    <br />
+    <div class="mt-3">Notes: </div>
+    <br />
+    <div class="mt-3">Résolution: </div>
+    <br />  
+
+    </div>
+
+
+      <div class="col-lg-9">
         <div class="col-md-4 mb-3">
             Numéro d'incident : <strong>Nouveau{{ ticket.id }}</strong>
         </div>
           <form class="needs-validation" action="" method="post" novalidate>
             <div class="form-row">
                 <div class="col-md-4 mb-3">
-                <div class="ui-widget">
-                    <label for="validationTooltip01">Numéro Client</label>
-                    <input type="search" class="form-control" id="numeroClient"   name="numeroClient" value="" required>
+                
+                    <label for="numeroClient">Numéro Client</label>
+                    <input type="text" class="form-control" id="numeroClient"   name="numeroClient" value="{{ client.id }}" required>
                       <div class="invalid-tooltip">
                         Saisir le numéro de client.
                       </div>
-                </div>
+             
                 </div>
 
               <div class="col-md-4 mb-3">
@@ -36,7 +52,7 @@
               <div class="col-md-4 mb-3">
               
                 <label for="validationTooltip02">Prenom</label>
-                <input type="text" class="ui-widget-content" id="prenom"  name="prenom" value="{{ client.prenom }}" required>
+                <input type="text" class="form-control" id="prenom"  name="prenom" value="{{ client.prenom }}" required>
               
                   <div class="invalid-tooltip">
                     Saisir le Prenom.

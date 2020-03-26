@@ -29,7 +29,6 @@ class clientManager extends Manager
         $req = $db->prepare('SELECT * FROM clients WHERE nom LIKE ? ORDER BY id DESC LIMIT 0, 5 '); // j'effectue ma requête SQL grâce au mot-clé LIKE
         $req->execute(array('%'.$term.'%'));
         
-        //req->execute(); // Bindparam
         return $req;
     }
        
