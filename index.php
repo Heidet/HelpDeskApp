@@ -34,19 +34,20 @@ $twig->addGlobal('session', $session);*/
         ];
 //}
 
-            //if (isset($_GET) && isset($_GET['action']) && array_key_exists($_GET['action'], array_keys($routeurAction))){
+            if (isset($_GET) && isset($_GET['action']) && array_key_exists($_GET['action'], $routeurAction) == true){
                 
                 $controller_name = $routeurAction[$_GET['action']]['controller'];
                 $methode_name = $routeurAction[$_GET['action']]['methode'];
                 //echo $methode_name; 
                 $controller = new $controller_name;
                 $controller->$methode_name($twig);
-            //}
-            //else{
+            }
+           
+            else{
                 $home = new \Controller\Connexion();
                 $homePage = $home->checkConnexion($twig);
-            //}
-        
+            }
+           
 
     //var_dump($controller);
     //$controller->$routeurAction[$_GET['action']]['methode']($twig);

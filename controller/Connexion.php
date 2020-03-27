@@ -6,21 +6,22 @@ class Connexion
 {
     function checkConnexion($twig)
     {
-        //$connexion = new \Model\connectManager();
-       
-        /*if(isset($_SESSION['Logged']) && $_SESSION['Logged'] =  true){
-            echo $twig->render('listTicket.html.twig');
-         }*//*if(isset($_SESSION['Logged']) && $_SESSION['Logged'] =  true){
-            echo $twig->render('listTicket.html.twig');
+     
+        if(isset($_SESSION['Logged']) && $_SESSION['Logged'] == true){
+            header('Location: index.php?action=listTickets');
+            
          }
          
         if (isset($_POST['username']) && isset($_POST['password'])) {
             if (!empty($_POST['username']) && !empty($_POST['password'])) {
+                $connexion = new \Model\connectManager();
                 if($connexion->userConnexion($_POST['username'], $_POST['password']) == 1 ){
                     $_SESSION['Logged'] = true;
                     print_r('connecter');
                     var_dump('connecter');
+                    header('Location: index.php?action=listTickets');
                     //echo $twig->render('listTicket.html.twig');
+                   
                 }
                 return $connexion->userConnexion($_POST['username'], $_POST['password']);
             }
@@ -28,15 +29,14 @@ class Connexion
                 echo 'Erreur !';
             }
         }
-        echo $twig->render('connexion.html.twig');*/
+        echo $twig->render('connexion.html.twig');
     }
 
   
-    function deconnexion($twig) 
+    function deconnexion() 
     {
             session_destroy();
-            echo $twig->render('connexion.html.twig');
-
+            header('Location: index.php?action=connexion');
     }
 }
 
