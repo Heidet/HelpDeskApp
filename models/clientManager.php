@@ -12,7 +12,7 @@ class clientManager extends Manager
         return $affectedLines;
     }
 
-    /*public function getClients()
+    public function getClients()
     {
         $db = $this->dbConnect();
         $req = $db->query("SELECT * FROM `clients`  ORDER BY id DESC");
@@ -20,7 +20,7 @@ class clientManager extends Manager
         
 
        return $req;
-    }*/
+    }
 
     public function searchClients($term)
     {

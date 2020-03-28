@@ -3,9 +3,29 @@
 {% block title %}{{ parent() }} - détail-Ticket{% endblock %}
 
 {% block content %}     
-<div class="container-fluid mt-3">
-  <div class="row">        
-      <div class="col-lg-12">
+<div class="container-fluid">
+  <div class="row">   
+  <div class="col-lg-2" id="bandeau">
+      <div id="list-example" class="list-group mt-5">
+          <a class="list-group-item list-group-item-action" href="#list-item-1">dossier</a>
+          <a class="list-group-item list-group-item-action" href="#list-item-2">Contact</a>
+          
+           <a class="list-group-item list-group-item-action" href="#listClients.html.twig" data-toggle="modal" data-target=".bd-example-modal-xl">Liste clients</a>
+            <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                  {% block contentClient %}{% include "listClients.html.twig" %}{% endblock %}
+                </div>
+              </div>
+            </div>
+          <a class="list-group-item list-group-item-action" href="#sectionNote">Notes</a>
+          <a class="list-group-item list-group-item-action" href="#list-item-5">Résolution</a>
+      </div>
+    </div>  
+
+
+
+      <div class="col-lg-9 mt-5">
      <div class="form-row">
         <div class="col-md-4 mb-3">
             Numéro d'incident : <strong>{{ ticket.id }}</strong>
@@ -125,7 +145,31 @@
                   <input type="file" class="form-control-file" id="document"  name="document" value="">
                 </div>
             </div> 
-            <button class="btn btn-primary" type="submit">Enregistrer</button>
+            
+            <div class="form-row">
+                <div class="col-md-4  mb-0">
+                  <p><button class="btn btn-primary" type="submit">Enregistrer</button></p>
+                </div>
+
+                <div class="col-md-4  mb-0">
+                  <div for="proprietaire">Propriétaire :{{ username }} </div>
+                </div>
+
+                <div class="col-md-4  mb-0">
+                  <div for="dateOuv">Date d'ouverture : {{ "now"|date("m/d/Y") }}</div>
+                </div>
+            </div> 
+
+          <div class="form-row" id="sectionNote">
+                <div class="col-md-10  mb-0">
+                <h3>Note</h3>
+                  <label for="note">Note</label>
+                  <textarea class="form-control" id="note"  name="note" rows="6" value="" placeholder=""
+                    required>{{ ticket.note }}</textarea>
+                    <div class="invalid-feedback">
+                      Note.
+                    </div>
+                </div>
 
       </form>
     </div>

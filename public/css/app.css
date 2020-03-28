@@ -1,6 +1,13 @@
+body {
+    background-color: #f4f2ef !important;
+}
 .navbar {
     position : initial!important;
+    background-color: #43456e !important;
 }
 .nav-link {
     color : black;
+}
+#bandeau{
+    background-color: #323448 !important;
 }

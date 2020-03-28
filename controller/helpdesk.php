@@ -1,13 +1,15 @@
 <?php namespace Controller;
-
+require_once('Connexion.php');
 require_once('models/ticketManager.php');
 require_once('models/clientManager.php');
+
 
     class Helpdesk  
     {
 
         function newTicket($twig)
         {
+           
             if(isset($_POST)&& !empty($_POST)){
 
                 if(isset($_POST['titre'])) $titre = $_POST['titre']; 
@@ -50,6 +52,25 @@ require_once('models/clientManager.php');
             echo $twig->render('listTicket.html.twig', ['tickets'=>$tickets]);
              
         }
+        function annuaireClients($twig)
+        {
+            
+            $clientManager = new \Model\clientManager(); 
+            $clients = $clientManager->getClients(); 
+            echo $twig->render('listClients.html.twig', ['clients'=>$clients]);
+            
+             
+        }
+        function getClients($twig)
+        {
+            
+            $clientManager = new \Model\clientManager(); 
+            $clients = $clientManager->getClients(); 
+            echo $twig->render('newTicket.html.twig', ['clients'=>$clients]);
+            
+             
+        }
+        
 
         function ticket($twig)
         {
@@ -80,7 +101,7 @@ require_once('models/clientManager.php');
                 return [];
             }
         }
-        
+
     
         function editTicket($twig)
         {   

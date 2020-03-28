@@ -14,10 +14,7 @@ class connectManager extends Manager
         return $resultat[0]; // retourner uniquement le 1er champs. 
     }
 
-}
-/*class userManager extends Manager
-{
-    public function checkConnexion($username, $password)
+    /*ublic function adminConnexion($username, $password)
     {
         $db = $this->dbConnect();
         $connect = $db->prepare('SELECT COUNT(id) FROM author WHERE username = ? AND hash = ?'); // selectionner tout les utilisateur et verifier 
@@ -26,6 +23,6 @@ class connectManager extends Manager
         $resultat = $connect->fetch();
         
         return $resultat[0]; // retourner uniquement le 1er champs. 
-    }
+    }*/
 
-}*/
+}
