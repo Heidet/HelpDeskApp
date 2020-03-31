@@ -2,34 +2,27 @@
 
 {% block title %}{{ parent() }} - Ajouter Utilisateur{% endblock %}
 {% block content %}
+<script>
 
+</script>
         <div class="text-center pt-5">
             <i class="fa fa-users"></i>
             <h2>Création Utilisateur</h2>
         </div><!-- /.col-lg-4 -->
 
-<div class="container pt-2">
-            <form  method="post" action="">
-              
-              
-        
-                        <div class="col-md-6">
+    <div class="container pt-2">
+            <form class="text-center" method="post" action="" onSubmit="return validate()">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="username" name="username" placeholder="utilisateur" value=""/>
                             </div>
-                        </div>
-                        <div class="col-md-6">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="password" name="password" placeholder="Mot de passe" value=""/>
                             </div>
-                            <!--<div class="form-group">
-                                <input type="text" class="form-control" id="password" name="password" placeholder="Confirmer Mot de Passe" value=""/>
-                            </div>-->
-                        </div>
-                    
-                    <button class="btn btn-primary" type="submit">Enregistrer</button>
-             
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirmation Mot de passe" value=""/>
+                            </div>
+                   <button class="btn btn-primary" type="submit">Enregistrer</button>
             </form>
-        </div>
+    </div>
 
 {% endblock %}

@@ -21,11 +21,8 @@ class Connexion
                     }
                     
                     $username = $_POST['username'];
-                    //echo $username;
                     header('Location: index.php?action=listTickets'.$username);
-                    //echo 'Je suis connecter';
                     }
-                //return $connexion->userConnexion($_POST['username'], $_POST['password']);
             }
             else {
                 throw new \Exception('Impossible de ce connecter !');

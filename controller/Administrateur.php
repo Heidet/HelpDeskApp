@@ -38,13 +38,14 @@ class Administrateur
 
             $userManager = new \Model\userManager();
             $affectedLines = $userManager->addUser($username, $password);
-
+            if ($_POST['confirm_password'] != $_POST['password']){
+                echo '<script>alert("TON TEXTE");</script>'; 
+            }
             if ($affectedLines === false) {
-                throw new \Exception('Impossible d\'ajouter l\'utilisateur !');
+                throw new \Exception ('Impossible d\'ajouter l\'utilisateur !');
             }
             else {
-                echo "ajout utilisateur ok";
-                //header('Location: index.php?action=listTickets');
+               header('Location: index.php?action=administration');
             }
         }
 
@@ -71,8 +72,7 @@ class Administrateur
                 throw new \Exception('Impossible d\'ajouter le client !');
             }
             else {
-                echo "ajout ok";
-                //header('Location: index.php?action=listTickets');
+                header('Location: index.php?action=administration');
             }
         }
 
