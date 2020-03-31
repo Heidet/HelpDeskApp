@@ -22,6 +22,7 @@ if(isset($_SESSION['Logged']) && $_SESSION['Logged'] == true){
     }
             $routeurAction = [
                 'administration' => ['controller' =>  'Controller\Administrateur', 'methode' => 'administrationView' ],
+                'addUser' => ['controller' =>  'Controller\Administrateur', 'methode' => 'addUser' ],
                 'connexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'checkConnexion' ],
                 'deconnexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'deconnexion' ],   
                 'deleteTicket' => ['controller' =>  'Controller\Administrateur', 'methode' => 'deleteTicket' ],      

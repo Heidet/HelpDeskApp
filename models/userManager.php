@@ -1,7 +1,7 @@
 <?php namespace Model;
 require_once('Manager.php');
 
-class connectManager extends Manager
+class userManager extends Manager
 {
     public function userConnexion($username, $password)
     {
@@ -12,5 +12,14 @@ class connectManager extends Manager
         $resultat = $connect->fetch();
         
         return $resultat; // retourner uniquement le 1er champs. 
+    }
+    public function addUser($username, $password)
+    {
+            $db = $this->dbConnect();
+            $req = $db->prepare('INSERT INTO users (`username`, `hash`) VALUES ( ?, ? ) ');
+            $hash = hash('sha256', $password);
+            $affectedLines= $req->execute(array($username, $hash));
+               
+            return $affectedLines;
     }
 }
