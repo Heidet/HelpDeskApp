@@ -4,6 +4,7 @@ error_reporting(E_ALL); // reporting des erreur sur la page
 ini_set("display_errors", 1);
 //require_once('controller/Helpdesk.php');
 require_once('controller/Connexion.php');
+require_once('controller/Administrateur.php');
 require_once('vendor/autoload.php');
 
 
@@ -24,9 +25,10 @@ if(isset($_SESSION['Logged']) && $_SESSION['Logged'] == true){
                 'deconnexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'deconnexion' ],         
                 'searchClients' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'searchClients' ],
                 'listClients' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'annuaireClients' ],
+                'addClient' => ['controller' =>  'Controller\HelpDesk', 'methode' => 'addClient' ],
                 'editTicket' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'editTicket' ],
                 'listTickets' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'listTickets' ],
-                'newTicket' => ['controller' => 'Controller\Helpdesk', 'methode' => 'newTicket' ],
+                'addTicket' => ['controller' => 'Controller\Helpdesk', 'methode' => 'addTicket' ],
                 'ticket' => ['controller' => 'Controller\Helpdesk', 'methode' => 'ticket' ]
             ];
         
@@ -37,6 +39,9 @@ if(isset($_SESSION['Logged']) && $_SESSION['Logged'] == true){
                     //echo $methode_name; 
                     $controller = new $controller_name;
                     $controller->$methode_name($twig);
+                }
+                else {
+                    header('Location: index.php?action=listTickets'.$username);
                 }
    
 }

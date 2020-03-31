@@ -3,7 +3,7 @@ require_once('Manager.php');
 
 class clientManager extends Manager
 {
-    public function addClient($numeroClient, $nom, $prenom, $mail, $ville, $zip, $contact)
+    public function newClient($nom, $prenom, $mail, $ville, $zip, $contact)
     {
         $db = $this->dbConnect();
         $req = $db->prepare("INSERT INTO `clients` (`nom`,  `date`, `prenom`, `mail`, `ville`, `zip`, `contact`) VALUES ( ?, CURRENT_TIMESTAMP, ?, ?, ?, ?, ?);");

@@ -1,0 +1,137 @@
+{% extends "layout.html.twig" %}
+{% block title %}{{ parent() }} - Nouveau-Client{% endblock %}
+{% block content %}
+<div class="container mt-5 ">
+    <!-- Material form register -->
+    <div class="card">
+
+        <h5 class="card-header info-color white-text text-center py-4">
+            <strong>Ajout Client</strong>
+        </h5>
+
+        <!--Card content-->
+        <div class="card-body px-lg-5 pt-5">
+
+            <!-- Form -->
+            <form class="text-center" style="color: #757575;" method="post" action="">
+
+                <div class="form-row">
+                    <div class="col">
+                        <!-- First name -->
+                        <label for="nom">Nom</label>
+                        <input type="text" class="form-control" id="nom" name="nom" value="{{ client.nom }}" required>
+
+                        <div class="invalid-tooltip">
+                            Saisir l'utilisateur.
+                        </div>
+
+                        <div class="invalid-tooltip">
+                            Saisir l'utilisateur.
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!-- Last name -->
+                        <div class="md-form">
+                            <label for="validationTooltip02">Prenom</label>
+                            <input type="text" class="form-control" id="prenom" name="prenom"
+                                value="{{ client.prenom }}" required>
+
+                            <div class="invalid-tooltip">
+                                Saisir le Prenom.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--- adresse ---->
+                <div class="form-row">
+                        <div class="col">
+                            <!-- First name -->
+                            <div class="md-form">
+                                <label for="validationTooltipUsername">Mail</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="mail"aria-describedby="validationTooltipUsernamePrepend" name="mail" required>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="col">
+                            <!-- Last name -->
+                                <div class="md-form">
+                                    <label for="validationTooltip03">Ville</label>
+                                    <input type="text" class="form-control" id="ville" name="ville" required>
+                                </div>
+                            </div>
+                            
+                </div>
+                <div class="form-row">
+                        <div class="col">
+                            <!-- Last name -->
+                            <div class="md-form">
+                                <label for="validationTooltip05">Zip</label>
+                                <input type="text" class="form-control" id="zip" name="zip" value="{{ client.zip }}"
+                                    required>
+                                <div class="invalid-tooltip">
+                                    Saisir code postal.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col">
+                            <!-- Last name -->
+                            <div class="md-form">
+                                <label for="validationTooltip05">Contact</label>
+                                <input type="text" class="form-control" id="contact" name="contact" value="{{ client.zip }}"
+                                    required>
+                                <div class="invalid-tooltip">
+                                    Saisir code postal.
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                        
+                  
+
+
+                    <div class="form-row">
+                        <div class="col">
+                            <!-- First name -->
+                            <!--<div class="md-form">
+                                    <input type="text" id="adresse" name"adresse" class="form-control">
+                                    <label for="adresse">Adresse</label>
+                                </div>-->
+                        </div>
+                    </div>
+
+                    <!-- Sign up button -->
+                    <div class="col-md-4 mt-4">
+                        <p><button class="btn btn-primary" type="submit">Enregistrer</button></p>
+                    </div>
+
+
+                    <!-- Social register -->
+                    <p>or sign up with:</p>
+
+                    <a type="button" class="btn-floating btn-fb btn-sm">
+                        <i class="fa fa-facebook-f"></i>
+                    </a>
+                    <a type="button" class="btn-floating btn-tw btn-sm">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a type="button" class="btn-floating btn-git btn-sm">
+                        <i class="fa fa-github"></i>
+                    </a>
+
+                    <hr>
+
+            </form>
+            <!-- Form -->
+
+        </div>
+
+    </div>
+    <!-- Material form register -->
+</div>
+{% endblock %}

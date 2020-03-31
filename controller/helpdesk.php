@@ -1,5 +1,5 @@
 <?php namespace Controller;
-require_once('Connexion.php');
+//require_once('Connexion.php');
 require_once('models/ticketManager.php');
 require_once('models/clientManager.php');
 
@@ -7,13 +7,12 @@ require_once('models/clientManager.php');
     class Helpdesk  
     {
 
-        function newTicket($twig)
+        function addTicket($twig)
         {
             $clientManager = new \Model\clientManager(); 
             $clients = $clientManager->getClients(); 
-           
+      
             if(isset($_POST)&& !empty($_POST)){
-
                 if(isset($_POST['titre'])) $titre = $_POST['titre']; 
                 if(isset($_POST['numeroClient'])) $numeroClient = $_POST['numeroClient'];
                 if(isset($_POST['nom'])) $nom = $_POST['nom'];
@@ -27,7 +26,7 @@ require_once('models/clientManager.php');
                 if(isset($_POST['contenu'])) $contenu = $_POST['contenu'];
                 
                 $ticketManager = new \Model\ticketManager();
-                $affectedLines = $ticketManager->addTicket($titre, $numeroClient, $nom, $prenom, $mail, $ville, $zip, $contact, $priorite, $categorie,  $contenu);
+                $affectedLines = $ticketManager->newTicket($titre, $numeroClient, $nom, $prenom, $mail, $ville, $zip, $contact, $priorite, $categorie,  $contenu);
     
                 if ($affectedLines === false) {
                     throw new \Exception('Impossible d\'ajouter le ticket !');
@@ -39,7 +38,7 @@ require_once('models/clientManager.php');
             }
 
             else{
-                echo $twig->render('newTicket.html.twig', ['clients'=>$clients]);
+                echo $twig->render('addTicket.html.twig', ['clients'=>$clients]);
            }
 
         }
@@ -56,6 +55,7 @@ require_once('models/clientManager.php');
             echo $twig->render('listTicket.html.twig', ['tickets'=>$tickets, 'clients'=>$clients]);
              
         }
+
         function annuaireClients($twig)
         {
             
@@ -65,18 +65,7 @@ require_once('models/clientManager.php');
             
              
         }
-        function getClients($twig)
-        {
-            
-            $clientManager = new \Model\clientManager(); 
-            $clients = $clientManager->getClients(); 
-            echo $twig->render('newTicket.html.twig', ['clients'=>$clients]);
-            
-             
-        }
         
-        
-
         function ticket($twig)
         {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -107,7 +96,6 @@ require_once('models/clientManager.php');
             }
         }
 
-    
         function editTicket($twig)
         {   
                 
@@ -134,8 +122,35 @@ require_once('models/clientManager.php');
                 }
 
             }
+        }
 
-            
+        function addClient($twig)
+        {
+                if(isset($_POST)&& !empty($_POST)){
+                    if(isset($_POST['nom'])) $nom = $_POST['nom'];
+                    if(isset($_POST['prenom'])) $prenom = $_POST['prenom'];
+                    if(isset($_POST['mail'])) $mail = $_POST['mail'];
+                    if(isset($_POST['ville'])) $ville = $_POST['ville'];
+                    if(isset($_POST['zip'])) $zip = $_POST['zip'];
+                    if(isset($_POST['contact'])) $contact = $_POST['contact'];
+                    
+                    
+                    $clientManager = new \Model\clientManager();
+                    $affectedLines = $clientManager->newClient($nom, $prenom, $mail, $ville, $zip, $contact);
+        
+                    if ($affectedLines === false) {
+                        throw new \Exception('Impossible d\'ajouter le client !');
+                    }
+                    else {
+                        echo "ajout ok";
+                        //header('Location: index.php?action=listTickets');
+                    }
+                }
+    
+                else{
+                    echo $twig->render('addClient.html.twig');
+               }
+    
         }
 
    }

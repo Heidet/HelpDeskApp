@@ -3,7 +3,7 @@ require_once('Manager.php');
 
 class ticketManager extends Manager
 {
-    public function addTicket($titre, $numeroClient, $nom, $prenom, $mail, $ville, $zip, $contact, $priorite, $categorie, $contenu)
+    public function newTicket($titre, $numeroClient, $nom, $prenom, $mail, $ville, $zip, $contact, $priorite, $categorie, $contenu)
     {
         $db = $this->dbConnect();
         $req = $db->prepare("INSERT INTO `tickets` (`titre`, `numeroClient`, `date`, `nom`, `prenom`, `mail`, `ville`, `zip`, `contact`, `priorite`, `categorie`, `contenu`) VALUES (?, ?, CURRENT_TIMESTAMP, ?, ?, ?, ?, ?, ?, ?, ?, ?);");

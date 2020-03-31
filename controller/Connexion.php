@@ -11,7 +11,6 @@ class Connexion
                 $user = $connexion->userConnexion($_POST['username'], $_POST['password']);
                 if(!empty($user)){
                     $_SESSION['Logged'] = true;
-        
 
                     if((bool)$user['isAdmin']){
                         $_SESSION['admin'] = true;
@@ -22,8 +21,8 @@ class Connexion
                     }
                     
                     $username = $_POST['username'];
-                    echo $username;
-                    header('Location: index.php?action=listTickets&'.$username);
+                    //echo $username;
+                    header('Location: index.php?action=listTickets'.$username);
                     //echo 'Je suis connecter';
                     }
                 //return $connexion->userConnexion($_POST['username'], $_POST['password']);
