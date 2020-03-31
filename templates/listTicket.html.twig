@@ -1,6 +1,10 @@
 {% extends "layout.html.twig" %}
 
 {% block title %}{{ parent() }} - Liste Tickets{% endblock %}
+{% block nav %}
+            <a href="index.php?action=deconnexion" class="btn btn-danger">Deconnexion</a>
+            <i class="fa fa-power-off"></i>
+{% endblock %}
 {% block content %}
 
             <div class="container mt-4">

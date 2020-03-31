@@ -11,34 +11,40 @@ $loader = new \Twig\Loader\FilesystemLoader('./templates');
 $twig = new \Twig\Environment($loader, [
     //'cache' => './cache',
     ]);
-    
+
 /*--------- Routage méthode et action ---------*/ 
 
 if(isset($_SESSION['Logged']) && $_SESSION['Logged'] == true){
+    if(isset($_SESSION) && !empty($_SESSION['admin'])){
+        $twig->addGlobal('isAdmin', $_SESSION['admin']);
 
-        $routeurAction = [
-            'connexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'checkConnexion' ],
-            'deconnexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'deconnexion' ],         
-            'searchClients' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'searchClients' ],
-            'listClients' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'annuaireClients' ],
-            'editTicket' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'editTicket' ],
-            'listTickets' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'listTickets' ],
-            'newTicket' => ['controller' => 'Controller\Helpdesk', 'methode' => 'newTicket' ],
-            'ticket' => ['controller' => 'Controller\Helpdesk', 'methode' => 'ticket' ]
-        ];
-
-            if (isset($_GET) && isset($_GET['action']) && array_key_exists($_GET['action'], $routeurAction) == true){
-            
-                $controller_name = $routeurAction[$_GET['action']]['controller'];
-                $methode_name = $routeurAction[$_GET['action']]['methode'];
-                //echo $methode_name; 
-                $controller = new $controller_name;
-                $controller->$methode_name($twig);
-            }
-        }
-            else{
-                $home = new \Controller\Connexion();
-                $homePage = $home->checkConnexion($twig);
-            }
+    }
+            $routeurAction = [
+                'connexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'checkConnexion' ],
+                'deconnexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'deconnexion' ],         
+                'searchClients' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'searchClients' ],
+                'listClients' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'annuaireClients' ],
+                'editTicket' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'editTicket' ],
+                'listTickets' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'listTickets' ],
+                'newTicket' => ['controller' => 'Controller\Helpdesk', 'methode' => 'newTicket' ],
+                'ticket' => ['controller' => 'Controller\Helpdesk', 'methode' => 'ticket' ]
+            ];
+        
+                if (isset($_GET) && isset($_GET['action']) && array_key_exists($_GET['action'], $routeurAction) == true){
+                
+                    $controller_name = $routeurAction[$_GET['action']]['controller'];
+                    $methode_name = $routeurAction[$_GET['action']]['methode'];
+                    //echo $methode_name; 
+                    $controller = new $controller_name;
+                    $controller->$methode_name($twig);
+                }
+   
+}
+else {
+                
+    $home = new \Controller\Connexion();
+    $homePage = $home->checkConnexion($twig);
+}
+       
             
          

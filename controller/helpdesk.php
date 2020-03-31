@@ -9,6 +9,8 @@ require_once('models/clientManager.php');
 
         function newTicket($twig)
         {
+            $clientManager = new \Model\clientManager(); 
+            $clients = $clientManager->getClients(); 
            
             if(isset($_POST)&& !empty($_POST)){
 
@@ -37,7 +39,7 @@ require_once('models/clientManager.php');
             }
 
             else{
-                echo $twig->render('newTicket.html.twig');
+                echo $twig->render('newTicket.html.twig', ['clients'=>$clients]);
            }
 
         }
@@ -47,9 +49,11 @@ require_once('models/clientManager.php');
             
             $ticketManager = new \Model\ticketManager(); 
             $tickets = $ticketManager->getTickets(); 
+            $clientManager = new \Model\clientManager(); 
+            $clients = $clientManager->getClients(); 
             
         
-            echo $twig->render('listTicket.html.twig', ['tickets'=>$tickets]);
+            echo $twig->render('listTicket.html.twig', ['tickets'=>$tickets, 'clients'=>$clients]);
              
         }
         function annuaireClients($twig)
@@ -70,6 +74,7 @@ require_once('models/clientManager.php');
             
              
         }
+        
         
 
         function ticket($twig)
