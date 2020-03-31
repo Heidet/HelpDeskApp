@@ -11,3 +11,9 @@ body {
 #bandeau{
     background-color: #323448 !important;
 }
+#commande {
+    padding-top: 180px !important;
+}
+.fa.fa-users {
+    font-size: 150px;
+}

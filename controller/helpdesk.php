@@ -124,33 +124,4 @@ require_once('models/clientManager.php');
             }
         }
 
-        function addClient($twig)
-        {
-                if(isset($_POST)&& !empty($_POST)){
-                    if(isset($_POST['nom'])) $nom = $_POST['nom'];
-                    if(isset($_POST['prenom'])) $prenom = $_POST['prenom'];
-                    if(isset($_POST['mail'])) $mail = $_POST['mail'];
-                    if(isset($_POST['ville'])) $ville = $_POST['ville'];
-                    if(isset($_POST['zip'])) $zip = $_POST['zip'];
-                    if(isset($_POST['contact'])) $contact = $_POST['contact'];
-                    
-                    
-                    $clientManager = new \Model\clientManager();
-                    $affectedLines = $clientManager->newClient($nom, $prenom, $mail, $ville, $zip, $contact);
-        
-                    if ($affectedLines === false) {
-                        throw new \Exception('Impossible d\'ajouter le client !');
-                    }
-                    else {
-                        echo "ajout ok";
-                        //header('Location: index.php?action=listTickets');
-                    }
-                }
-    
-                else{
-                    echo $twig->render('addClient.html.twig');
-               }
-    
-        }
-
    }

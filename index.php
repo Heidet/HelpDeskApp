@@ -21,11 +21,12 @@ if(isset($_SESSION['Logged']) && $_SESSION['Logged'] == true){
 
     }
             $routeurAction = [
+                'administration' => ['controller' =>  'Controller\Administrateur', 'methode' => 'administration' ],
                 'connexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'checkConnexion' ],
                 'deconnexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'deconnexion' ],         
                 'searchClients' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'searchClients' ],
                 'listClients' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'annuaireClients' ],
-                'addClient' => ['controller' =>  'Controller\HelpDesk', 'methode' => 'addClient' ],
+                'addClient' => ['controller' =>  'Controller\Administrateur', 'methode' => 'addClient' ],
                 'editTicket' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'editTicket' ],
                 'listTickets' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'listTickets' ],
                 'addTicket' => ['controller' => 'Controller\Helpdesk', 'methode' => 'addTicket' ],

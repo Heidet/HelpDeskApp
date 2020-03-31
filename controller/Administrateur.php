@@ -20,6 +20,10 @@ class Administrateur
             header('Location: index.php?action=listTickets');; //Pour rester sur la même page une fois l'action supprimer.
         }
     }
+    function administration($twig)
+    {
+        echo $twig->render('administration.html.twig');
+    }
 
     function addClient($twig)
     {
