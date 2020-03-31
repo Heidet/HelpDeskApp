@@ -14,6 +14,23 @@ body {
 #commande {
     padding-top: 180px !important;
 }
-.fa.fa-users {
+.fa.fa-users, .fa.fa-user-plus, .fa.fa-server {
     font-size: 150px;
+}
+.fa.fa-server {
+    color: green;
+}
+.fa.fa-users {
+    color: blue;
+}
+.fa.fa-user-plus {
+    color: red;
+}
+.fa.fa-power-off{
+    font-size: 30px;
+    color: red;
+}
+.fa.fa-address-card {
+    font-size: 30px;
+    color: #007bff;
 }

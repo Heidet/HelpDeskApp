@@ -1,7 +1,12 @@
 {% extends "layout.html.twig" %}
 {% block title %}{{ parent() }} - Nouveau-Client{% endblock %}
 {% block content %}
-<div class="container mt-5 ">
+<div class="container">
+
+        <div class="text-center">
+            <i class="fa fa-user-plus"></i>
+            <h2>Création Client</h2>
+        </div><!-- /.col-lg-4 -->
     <!-- Material form register -->
     <div class="card">
 
@@ -91,7 +96,7 @@
                             </div>
                         </div>
                 </div>
-                
+
                     <div class="form-row">
                         <div class="col">
                             <!-- First name -->
@@ -103,7 +108,7 @@
                     </div>
 
                     <!-- Sign up button -->
-                    <div class="col-md-4 mt-4">
+                    <div class="text-center mt-5">
                         <p><button class="btn btn-primary" type="submit">Enregistrer</button></p>
                     </div>
 
