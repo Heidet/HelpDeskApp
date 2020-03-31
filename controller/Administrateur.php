@@ -1,26 +1,29 @@
 <?php namespace Controller;
 require_once('models/clientManager.php');
+require_once('models/ticketManager.php');
 class Administrateur
 {
     
     function deleteTicket($twig)
     {
+            //$ticketId = null;
+            //if(isset($_POST['id'])) $titre = $_POST['id']; 
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
 
-        $ticketId = null;
-        if(isset($_POST['id'])) $titre = $_POST['id']; 
+                $ticketManager = new \Model\ticketManager();
+                $affectedLines = $ticketManager->deleteTicket($_GET['id']);
 
-        $ticketManager = new ticketManager();
-        $affectedLines = $ticketManager->deleteTicket($postId);
+                if ($affectedLines === false) {
+                    throw new \Exception('Impossible de supprimer ce ticket !');
+                }
+                else {
+                    //echo "ajout ok";
+                    header('Location: index.php?action=listTickets'); //Pour rester sur la même page une fois l'action supprimer.
+                }
+            }
 
-        if ($affectedLines === false) {
-            throw new Exception('Impossible de supprimer ce ticket !');
-        }
-        else {
-            //echo "ajout ok";
-            header('Location: index.php?action=listTickets');; //Pour rester sur la même page une fois l'action supprimer.
-        }
     }
-    function administration($twig)
+    function administrationView($twig)
     {
         echo $twig->render('administration.html.twig');
     }

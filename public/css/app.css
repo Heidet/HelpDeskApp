@@ -34,3 +34,7 @@ body {
     font-size: 30px;
     color: #007bff;
 }
+.fa.fa-trash.ml-3{
+    font-size: 30px;
+    color: red;
+}
