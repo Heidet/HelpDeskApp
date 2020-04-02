@@ -13,6 +13,7 @@ require_once('models/clientManager.php');
             $clients = $clientManager->getClients(); 
       
             if(isset($_POST)&& !empty($_POST)){
+                
                 if(isset($_POST['titre'])) $titre = $_POST['titre']; 
                 if(isset($_POST['numeroClient'])) $numeroClient = $_POST['numeroClient'];
                 if(isset($_POST['nom'])) $nom = $_POST['nom'];

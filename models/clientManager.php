@@ -18,8 +18,7 @@ class clientManager extends Manager
         $req = $db->query("SELECT * FROM `clients`  ORDER BY id DESC");
         //$req->execute(); // Bindparam
         
-
-       return $req;
+        return $req;
     }
 
     public function searchClients($term)
@@ -30,6 +29,7 @@ class clientManager extends Manager
         
         return $req;
     }
+
     public function deleteClient($clientId)
     {
         $db = $this->dbConnect();
@@ -38,7 +38,6 @@ class clientManager extends Manager
 
         return $affectedLines; 
     }
-       
 }
 
 

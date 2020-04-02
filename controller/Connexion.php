@@ -19,9 +19,8 @@ class Connexion
                     else{
                         $_SESSION['admin'] = false;
                     }
-                    
-                    $username = $_POST['username'];
-                    header('Location: index.php?action=listTickets'.$username);
+                   header('Location: index.php?action=listTickets&amp;'.$username);
+    
                     }
             }
             else {

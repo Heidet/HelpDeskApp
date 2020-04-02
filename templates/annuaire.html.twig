@@ -1,6 +1,9 @@
 {% extends "layout.html.twig" %}
 
 {% block title %}{{ parent() }} - Annuaire Client{% endblock %}
+{% block nav %}
+            <a href="index.php?action=deconnexion"><i class="fa fa-power-off"></i></a>
+{% endblock %}
 {% block content %}
 {% for client in clients %}
 <div class="container mt-4">

@@ -21,19 +21,25 @@ if(isset($_SESSION['Logged']) && $_SESSION['Logged'] == true){
 
     }
             $routeurAction = [
-                'administration' => ['controller' =>  'Controller\Administrateur', 'methode' => 'administrationView' ],
-                'addUser' => ['controller' =>  'Controller\Administrateur', 'methode' => 'addUser' ],
-                'deleteTicket' => ['controller' =>  'Controller\Administrateur', 'methode' => 'deleteTicket' ], 
-                'deleteClient' => ['controller' =>  'Controller\Administrateur', 'methode' => 'deleteClient' ],
-                'deleteUser' => ['controller' =>  'Controller\Administrateur', 'methode' => 'deleteUser' ],
-                'addClient' => ['controller' =>  'Controller\Administrateur', 'methode' => 'addClient' ],
-                'annuaire' => ['controller' =>  'Controller\Administrateur', 'methode' => 'annuaire' ],
+                /*--------------- Action Connexion/Déconnexion ---------------*/ 
                 'connexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'checkConnexion' ],
                 'deconnexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'deconnexion' ],   
 
+                /*--------------- Action Administrateur/CRUD Clients/Users/Tickets ---------------*/ 
+                'administration' => ['controller' =>  'Controller\Administrateur', 'methode' => 'administrationView' ],
+                'deleteTicket' => ['controller' =>  'Controller\Administrateur', 'methode' => 'deleteTicket' ], 
+                                        /*--------  CRUD User --------*/
+                'addUser' => ['controller' =>  'Controller\Administrateur', 'methode' => 'addUser' ],
+                'listUser' => ['controller' =>  'Controller\Administrateur', 'methode' => 'listUsers' ],
+                'deleteUser' => ['controller' =>  'Controller\Administrateur', 'methode' => 'deleteUser' ],
+                                        /*--------  CRUD Client --------*/
+                'annuaire' => ['controller' =>  'Controller\Administrateur', 'methode' => 'annuaire' ], 
+                'addClient' => ['controller' =>  'Controller\Administrateur', 'methode' => 'addClient' ], 
+                'deleteClient' => ['controller' =>  'Controller\Administrateur', 'methode' => 'deleteClient' ],
+                
+                /*--------------- Action HelpDesk/Créate Ticket, Liste ticket, Liste Clients ---------------*/ 
                 'searchClients' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'searchClients' ],
                 'listClients' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'annuaireClients' ],
-    
                 'editTicket' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'editTicket' ],
                 'listTickets' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'listTickets' ],
                 'addTicket' => ['controller' => 'Controller\Helpdesk', 'methode' => 'addTicket' ],

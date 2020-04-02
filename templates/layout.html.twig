@@ -78,15 +78,12 @@
 
   <div class="nav-scroller bg-white shadow-sm">
       <nav class="nav nav-underline">
-          <a class="nav-link active" href="#">Dashboard</a>
           <a class="nav-link" href="index.php?action=addTicket">Créer ticket</a>
-          <a class="nav-link" href="#">Mes Ticket</a>
           <a class="nav-link" href="index.php?action=listTickets">Vue BackLog</a>
           <!--Partie Admin -->
           {% if isAdmin %}
           <a class="nav-link" href="index.php?action=administration">Administration</a>
           {% endif %}  
-
       </nav>
   </div>
 

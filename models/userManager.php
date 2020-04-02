@@ -22,4 +22,22 @@ class userManager extends Manager
                
             return $affectedLines;
     }
+
+    public function deleteUser($userId)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('DELETE FROM `users` WHERE id = ?');
+        $affectedLines = $req->execute(array($userId));
+
+        return $affectedLines; 
+    }
+
+    public function getUsers()
+    {
+        $db = $this->dbConnect();
+        $req = $db->query("SELECT * FROM `users` ORDER BY id DESC");
+        //$req->execute(); // Bindparam
+
+        return $req;
+    }
 }

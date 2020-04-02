@@ -8,7 +8,7 @@ class Administrateur
     function deleteTicket($twig)
     {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
-            
+
             $ticketManager = new \Model\ticketManager();
             $affectedLines = $ticketManager->deleteTicket($_GET['id']);
 
@@ -22,36 +22,36 @@ class Administrateur
         }
     }
 
-    function deleteClient($twig)
-    {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-
-            $clientManager = new \Model\clientManager();
-            $affectedLines = $clientManager->deleteClient($_GET['id']);
-
-            if ($affectedLines === false) {
-                throw new \Exception('Impossible de supprimer ce client!');
-            }
-            else {
-                //echo "suppression ok";
-                header('Location: index.php?action=annuaire'); //Pour rester sur la même page une fois l'action supprimer.
-            }
-        }
-    }
-
-
-    function annuaire($twig)
-    {
-        $clientManager = new \Model\clientManager(); 
-        $clients = $clientManager->getClients(); 
-        
-        echo $twig->render('annuaire.html.twig', ['clients'=>$clients]);
-         
-    }
-
     function administrationView($twig)
     {
         echo $twig->render('administration.html.twig');
+    }
+
+    /*--------------- Function CRUD User ---------------*/ 
+    function listUsers($twig)
+    {
+        $userManager = new \Model\userManager(); 
+        $users = $userManager->getUsers(); 
+        
+        echo $twig->render('listUser.html.twig', ['users'=>$users]);
+         
+    }
+
+    function deleteUser($twig)
+    {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+
+            $clientManager = new \Model\userManager();
+            $affectedLines = $clientManager->deleteUser($_GET['id']);
+
+            if ($affectedLines === false) {
+                throw new \Exception('Impossible de supprimer l\'utilisateur !');
+            }
+            else {
+                //echo "suppression ok";
+                header('Location: index.php?action=listUser'); //Pour rester sur la même page une fois l'action supprimer.
+            }
+        }
     }
 
     function addUser($twig)
@@ -77,6 +77,34 @@ class Administrateur
             echo $twig->render('addUser.html.twig');
        }
 
+    }
+
+    /*--------------- Function CRUD Clients ---------------*/ 
+    function annuaire($twig)
+    {
+        $clientManager = new \Model\clientManager(); 
+        $clients = $clientManager->getClients(); 
+        
+        echo $twig->render('annuaire.html.twig', ['clients'=>$clients]);
+         
+    }
+
+
+    function deleteClient($twig)
+    {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+
+            $clientManager = new \Model\clientManager();
+            $affectedLines = $clientManager->deleteClient($_GET['id']);
+
+            if ($affectedLines === false) {
+                throw new \Exception('Impossible de supprimer ce client!');
+            }
+            else {
+                //echo "suppression ok";
+                header('Location: index.php?action=annuaire'); //Pour rester sur la même page une fois l'action supprimer.
+            }
+        }
     }
 
     function addClient($twig)
