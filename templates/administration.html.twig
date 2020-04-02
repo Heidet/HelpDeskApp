@@ -2,7 +2,7 @@
 {% block title %}{{ parent() }} - Administration {% endblock %}
 {% block content %}
 
-  <div class="container pt-5">
+  <div class="container">
     <div class="row text-center" id="commande">
           <div class="col-lg-4">
             <i class="fa fa-user-plus"></i>
@@ -17,9 +17,22 @@
           <div class="col-lg-4">
             <i class="fa fa-server"></i>
             <h2>HelpDesk</h2>          
-            <p><a class="btn btn-danger" href="index.php?action=signalement" role="button">Signalement Prod &raquo;</a></p>
+            <p><a class="btn btn-danger" href="index.php?action=listTicket" role="button">Production &raquo;</a></p>
           </div><!-- /.col-lg-4 -->
-        </div><!-- /.row -->
+    </div><!-- /.row -->
+
+      <div class="row text-center pt-5" id="command2">
+          <div class="col-lg-4">
+            <i class="fa fa-user-plus"></i>
+            <h2>Client</h2>
+            <p><a class="btn btn-danger" href="index.php?action=annuaireClients" role="button">Liste Client &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+             <i class="fa fa-users"></i>
+            <h2>User</h2>         
+            <p><a class="btn btn-danger" href="index.php?action=addUser" role="button">liste User &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
   </div>
 
 

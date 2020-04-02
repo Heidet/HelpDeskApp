@@ -23,12 +23,16 @@ if(isset($_SESSION['Logged']) && $_SESSION['Logged'] == true){
             $routeurAction = [
                 'administration' => ['controller' =>  'Controller\Administrateur', 'methode' => 'administrationView' ],
                 'addUser' => ['controller' =>  'Controller\Administrateur', 'methode' => 'addUser' ],
+                'deleteTicket' => ['controller' =>  'Controller\Administrateur', 'methode' => 'deleteTicket' ], 
+                'deleteClient' => ['controller' =>  'Controller\Administrateur', 'methode' => 'deleteClient' ],
+                'addClient' => ['controller' =>  'Controller\Administrateur', 'methode' => 'addClient' ],
+                'annuaire' => ['controller' =>  'Controller\Administrateur', 'methode' => 'annuaire' ],
                 'connexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'checkConnexion' ],
                 'deconnexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'deconnexion' ],   
-                'deleteTicket' => ['controller' =>  'Controller\Administrateur', 'methode' => 'deleteTicket' ],      
+
                 'searchClients' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'searchClients' ],
                 'listClients' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'annuaireClients' ],
-                'addClient' => ['controller' =>  'Controller\Administrateur', 'methode' => 'addClient' ],
+    
                 'editTicket' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'editTicket' ],
                 'listTickets' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'listTickets' ],
                 'addTicket' => ['controller' => 'Controller\Helpdesk', 'methode' => 'addTicket' ],

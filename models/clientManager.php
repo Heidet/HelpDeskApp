@@ -30,6 +30,14 @@ class clientManager extends Manager
         
         return $req;
     }
+    public function deleteClient($clientId)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('DELETE FROM `clients` WHERE id = ?');
+        $affectedLines = $req->execute(array($clientId));
+
+        return $affectedLines; 
+    }
        
 }
 

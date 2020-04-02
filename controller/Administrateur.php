@@ -25,6 +25,34 @@ class Administrateur
 
     }
 
+    function deleteClient($twig)
+    {
+          
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+
+                $clientManager = new \Model\clientManager();
+                $affectedLines = $clientManager->deleteClient($_GET['id']);
+
+                if ($affectedLines === false) {
+                    throw new \Exception('Impossible de supprimer ce client!');
+                }
+                else {
+                    //echo "suppression ok";
+                    header('Location: index.php?action=annuaire'); //Pour rester sur la même page une fois l'action supprimer.
+                }
+            }
+
+    }
+
+    function annuaire($twig)
+    {
+        $clientManager = new \Model\clientManager(); 
+        $clients = $clientManager->getClients(); 
+        
+        echo $twig->render('annuaire.html.twig', ['clients'=>$clients]);
+         
+    }
+
     function administrationView($twig)
     {
         echo $twig->render('administration.html.twig');
@@ -38,9 +66,9 @@ class Administrateur
 
             $userManager = new \Model\userManager();
             $affectedLines = $userManager->addUser($username, $password);
-            if ($_POST['confirm_password'] != $_POST['password']){
+            /*if ($_POST['confirm_password'] != $_POST['password']){
                 echo '<script>alert("TON TEXTE");</script>'; 
-            }
+            }*/
             if ($affectedLines === false) {
                 throw new \Exception ('Impossible d\'ajouter l\'utilisateur !');
             }
