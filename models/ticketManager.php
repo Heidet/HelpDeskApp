@@ -3,18 +3,18 @@ require_once('Manager.php');
 
 class ticketManager extends Manager
 {
-    public function newTicket($titre, $numeroClient, $nom, $prenom, $mail, $ville, $zip, $contact, $priorite, $categorie, $contenu)
+    public function newTicket($titre, $numeroClient, $nom, $prenom, $mail, $ville, $zip, $contact, $priorite, $categorie, $document, $contenu)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare("INSERT INTO `tickets` (`titre`, `numeroClient`, `date`, `nom`, `prenom`, `mail`, `ville`, `zip`, `contact`, `priorite`, `categorie`, `contenu`) VALUES (?, ?, CURRENT_TIMESTAMP, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
-        $affectedLines = $req->execute(array($titre, $numeroClient, $nom, $prenom, $mail, $ville, $zip, $contact, $priorite, $categorie,  $contenu)); // recupération title content 
+        $req = $db->prepare("INSERT INTO `tickets` (`titre`, `numeroClient`, `date`, `nom`, `prenom`, `mail`, `ville`, `zip`, `contact`, `priorite`, `categorie`, `document`, `contenu`) VALUES (?, ?, CURRENT_TIMESTAMP, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
+        $affectedLines = $req->execute(array($titre, $numeroClient, $nom, $prenom, $mail, $ville, $zip, $contact, $priorite, $categorie, $document,  $contenu)); // recupération title content 
 
         return $affectedLines;
     }
-    public function editTicket($ticketId, $titre, $numeroClient, $nom, $prenom, $mail, $ville, $zip, $contact, $priorite, $categorie, $contenu)
+    public function editTicket($ticketId, $titre, $numeroClient, $nom, $prenom, $mail, $ville, $zip, $contact, $priorite, $categorie, $document, $contenu)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare("UPDATE `tickets` SET  titre = ?, numeroClient = ?, nom = ?, prenom = ?, mail = ?, ville = ?, zip = ?, contact = ?, priorite = ?, categorie = ?, contenu = ?  WHERE id = ?"); // mettre à jour la table poste ( titre = 1 champs, contenu = 2 ème champs) quand l'id = son ID 
+        $req = $db->prepare("UPDATE `tickets` SET  titre = ?, numeroClient = ?, nom = ?, prenom = ?, mail = ?, ville = ?, zip = ?, contact = ?, priorite = ?, categorie = ?, document = ?, contenu = ?  WHERE id = ?"); // mettre à jour la table poste ( titre = 1 champs, contenu = 2 ème champs) quand l'id = son ID 
         $affectedLines = $req->execute(array($titre, $numeroClient, $nom, $prenom, $mail, $ville, $zip, $contact, $priorite, $categorie, $contenu, $ticketId)); // recupération title content 
         
         return $affectedLines;

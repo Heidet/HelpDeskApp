@@ -29,7 +29,7 @@
         <div class="col-md-4 mb-3">
             Numéro d'incident : <strong>Nouveau{{ ticket.id }}</strong>
         </div>
-          <form class="needs-validation" action="" method="post" novalidate>
+          <form class="needs-validation" action="" method="post" enctype="multipart/form-data" novalidate>
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                 
@@ -152,7 +152,7 @@
 
             <div class="form-row">
                 <div class="col-md-4  mb-0">
-                  <p><button class="btn btn-primary" type="submit">Enregistrer</button></p>
+                  <p><button class="btn btn-primary" type="submit" name="submit">Enregistrer</button></p>
                 </div>
 
                 <div class="col-md-4  mb-0">

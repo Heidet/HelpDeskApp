@@ -15,12 +15,14 @@
                             <img src="http://demos.themes.guide/bodeo/assets/images/users/m101.jpg" alt="Mike Anamendolla" class="rounded-circle mx-auto d-block img-fluid">
                         </div>
                         <div class="col-12 col-sm-6 col-md-9 text-center text-sm-left">
+                     
                             <a href="/?action=deleteClient&amp;id={{ client.id }}" class="delete" 
-                                    onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article?');" >
-                            <br> 
-                            <span class="fa fa-trash fa-2x text-success float-right pulse" title="online now"></span>
-
-                            <br> 
+                                    onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce contact?');" ><span class="fa fa-trash fa-2x text-success float-right pulse" color="red" title="online now"></span></a>
+                            
+                            <span class="text-muted small text-truncate"><strong>Nom:</strong> {{ client.nom }}</span>
+                            <br>
+                            <span class="text-muted small text-truncate"><strong>Prenom:</strong> {{ client.prenom }}</span>
+                            <br>
                             <span class="fa fa-map-marker fa-fw text-muted" data-toggle="tooltip" title="" data-original-title="5842 Hillcrest Rd"></span>
                             <span class="text-muted">{{ client.zip }}</span>
                             <br>

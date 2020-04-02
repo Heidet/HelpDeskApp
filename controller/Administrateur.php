@@ -7,42 +7,38 @@ class Administrateur
     
     function deleteTicket($twig)
     {
-            //$ticketId = null;
-            //if(isset($_POST['id'])) $titre = $_POST['id']; 
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            
+            $ticketManager = new \Model\ticketManager();
+            $affectedLines = $ticketManager->deleteTicket($_GET['id']);
 
-                $ticketManager = new \Model\ticketManager();
-                $affectedLines = $ticketManager->deleteTicket($_GET['id']);
-
-                if ($affectedLines === false) {
-                    throw new \Exception('Impossible de supprimer ce ticket !');
-                }
-                else {
-                    //echo "ajout ok";
-                    header('Location: index.php?action=listTickets'); //Pour rester sur la même page une fois l'action supprimer.
-                }
+            if ($affectedLines === false) {
+                throw new \Exception('Impossible de supprimer ce ticket !');
             }
-
+            else {
+                //echo "ajout ok";
+                header('Location: index.php?action=listTickets'); //Pour rester sur la même page une fois l'action supprimer.
+            }
+        }
     }
 
     function deleteClient($twig)
     {
-          
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
 
-                $clientManager = new \Model\clientManager();
-                $affectedLines = $clientManager->deleteClient($_GET['id']);
+            $clientManager = new \Model\clientManager();
+            $affectedLines = $clientManager->deleteClient($_GET['id']);
 
-                if ($affectedLines === false) {
-                    throw new \Exception('Impossible de supprimer ce client!');
-                }
-                else {
-                    //echo "suppression ok";
-                    header('Location: index.php?action=annuaire'); //Pour rester sur la même page une fois l'action supprimer.
-                }
+            if ($affectedLines === false) {
+                throw new \Exception('Impossible de supprimer ce client!');
             }
-
+            else {
+                //echo "suppression ok";
+                header('Location: index.php?action=annuaire'); //Pour rester sur la même page une fois l'action supprimer.
+            }
+        }
     }
+
 
     function annuaire($twig)
     {

@@ -25,6 +25,7 @@ if(isset($_SESSION['Logged']) && $_SESSION['Logged'] == true){
                 'addUser' => ['controller' =>  'Controller\Administrateur', 'methode' => 'addUser' ],
                 'deleteTicket' => ['controller' =>  'Controller\Administrateur', 'methode' => 'deleteTicket' ], 
                 'deleteClient' => ['controller' =>  'Controller\Administrateur', 'methode' => 'deleteClient' ],
+                'deleteUser' => ['controller' =>  'Controller\Administrateur', 'methode' => 'deleteUser' ],
                 'addClient' => ['controller' =>  'Controller\Administrateur', 'methode' => 'addClient' ],
                 'annuaire' => ['controller' =>  'Controller\Administrateur', 'methode' => 'annuaire' ],
                 'connexion' => ['controller' =>  'Controller\Connexion', 'methode' => 'checkConnexion' ],
