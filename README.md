@@ -9,13 +9,13 @@
 
 <p>Application de suivi HelpDesk callcenter.</p>
 <p>Application en PHP MVC.</p>
-> Utilisation et integration de TWIG et Composer pour le routage et les templates. 
-> Utilisation et intégration de JQuery UI pour autocompléte client avec infos DB SQL en JSON.
-> JQuery pour vérification mot de passe à la création User. 
-> Utilisation de Bootstrap pour les templates. 
-> DB en PDO avec Hashage mot de passe User et Admin. 
-> Fonctionnalité HelpDesk => CRUD TICKET. 
-> Fonctionnalité ADMIN => CRUD TICKET / CRUD CLIENT / CRUD USER.
+<p>Utilisation et integration de TWIG et Composer pour le routage et les templates.</p>
+<p>Utilisation et intégration de JQuery UI pour autocompléte client avec infos DB SQL en JSON.</p>
+<p>JQuery pour vérification mot de passe à la création User.</p>
+<p>Utilisation de Bootstrap pour les templates.</p>
+<p>DB en PDO avec Hashage mot de passe User et Admin. </p>
+<p>Fonctionnalité HelpDesk => CRUD TICKET. </p>
+<p>Fonctionnalité ADMIN => CRUD TICKET / CRUD CLIENT / CRUD USER.</p>
 
 
 ### 🏠 [Homepage](http://projet5.projetoc-aheidet.com/)
