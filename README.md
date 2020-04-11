@@ -7,8 +7,8 @@
   </a>
 </p>
 
-> Application de suivi HelpDesk callcenter.
-> Application en PHP MVC. 
+<p>Application de suivi HelpDesk callcenter.</p>
+<p>Application en PHP MVC.</p>
 > Utilisation et integration de TWIG et Composer pour le routage et les templates. 
 > Utilisation et intégration de JQuery UI pour autocompléte client avec infos DB SQL en JSON.
 > JQuery pour vérification mot de passe à la création User. 
