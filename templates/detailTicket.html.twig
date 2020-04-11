@@ -33,7 +33,7 @@
             Numéro d'incident : <strong>{{ ticket.id }}</strong>
         </div>
     </div>
-          <form class="needs-validation" method="post" novalidate>
+          <form class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <label for="validationTooltip01">Numéro Client</label>
@@ -142,12 +142,15 @@
                       Saisir l'incident.
                     </div>
                 </div>
+                
                 <div class="form-group col-md-5 mb-4 ">
                   <label for="exampleFormControlFile1">Pièce jointe</label>
-                  <a target="_blank" href="./uploads/{{ ticket.document }}" title="">Voir Doc</a>
-                
+                  {% if ticket.document %}
+                  <a target="_blank" href="./uploads/{{ ticket.document }}" title="">{{ ticket.document }}</a>
+                  {% endif %}
                   <input type="file" class="form-control-file" id="document"  name="document" value="">
                 </div>
+
             </div> 
             
             <div class="form-row">
@@ -155,7 +158,7 @@
                     <p><button class="btn btn-primary" type="submit">Enregistrer</button></p>
                 </div>
                 <div class="col-md-2  mb-0">
-                  <div for="proprietaire">Propriétaire :{{ username }} </div>
+                  <div for="proprietaire">Propriétaire : {{ users.username }} </div>
                 </div>
 
                 <div class="col-md-2  mb-0">

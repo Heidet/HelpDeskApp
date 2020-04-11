@@ -1,6 +1,5 @@
 <?php namespace Controller;
 require_once('models/userManager.php');
-require_once('controller/Helpdesk.php');
 class Connexion
 {
     function checkConnexion($twig)
@@ -19,7 +18,7 @@ class Connexion
                     else{
                         $_SESSION['admin'] = false;
                     }
-                   header('Location: index.php?action=listTickets&amp;'.$username);
+                   header('Location: index.php?action=listTickets&amp;');
     
                     }
             }

@@ -2,15 +2,12 @@
 session_start(); // démarre le système de sessions. Si le visiteur vient d'arriver sur le site, alors un numéro de session est généré pour lui. 
 error_reporting(E_ALL); // reporting des erreur sur la page
 ini_set("display_errors", 1);
-//require_once('controller/Helpdesk.php');
-require_once('controller/Connexion.php');
-require_once('controller/Administrateur.php');
 require_once('vendor/autoload.php');
 
 
 $loader = new \Twig\Loader\FilesystemLoader('./templates');
 $twig = new \Twig\Environment($loader, [
-    //'cache' => './cache',
+    'cache' => './cache',
     ]);
 
 /*--------- Routage méthode et action ---------*/ 
@@ -36,7 +33,7 @@ if(isset($_SESSION['Logged']) && $_SESSION['Logged'] == true){
                 'annuaire' => ['controller' =>  'Controller\Administrateur', 'methode' => 'annuaire' ], 
                 'addClient' => ['controller' =>  'Controller\Administrateur', 'methode' => 'addClient' ], 
                 'deleteClient' => ['controller' =>  'Controller\Administrateur', 'methode' => 'deleteClient' ],
-                
+
                 /*--------------- Action HelpDesk/Créate Ticket, Liste ticket, Liste Clients ---------------*/ 
                 'searchClients' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'searchClients' ],
                 'listClients' => ['controller' =>  'Controller\Helpdesk', 'methode' => 'annuaireClients' ],
@@ -55,12 +52,11 @@ if(isset($_SESSION['Logged']) && $_SESSION['Logged'] == true){
                     $controller->$methode_name($twig);
                 }
                 else {
-                    header('Location: index.php?action=listTickets'.$username);
+                    header('Location: index.php?action=listTickets');
                 }
    
 }
 else {
-                
     $home = new \Controller\Connexion();
     $homePage = $home->checkConnexion($twig);
 }

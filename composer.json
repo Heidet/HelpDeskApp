@@ -1,10 +1,10 @@
 {
     "require": {
         "twig/twig": "^2.0"
-    }
-    /*"autoload": {
+    },
+    "autoload": {
         "psr-4": {
             "Controller\\": "controller/"
         }
-    }*/
+    }
 }
